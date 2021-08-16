@@ -23,10 +23,10 @@ class OnboardingMainFragment:Fragment(){
 
     private fun initViewPager() {
         val adapter = OnboardingViewPagerAdapter(requireActivity())
-        binding.viewPager.adapter = adapter
-        //animation
-        binding.viewPager.setPageTransformer(DepthPageTransformer())
-        //Indicator
-        binding.dotsIndicator.setViewPager2(binding.viewPager)
+        binding.apply {
+            viewPager.adapter = adapter
+            viewPager.setPageTransformer(DepthPageTransformer())
+            dotsIndicator.setViewPager2(binding.viewPager)
+        }
     }
 }

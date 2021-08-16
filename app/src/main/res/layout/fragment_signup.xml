@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/bg"
-    tools:context=".ui.login.LoginFragment">
+    tools:context=".ui.signUp.SignUpFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,12 +20,44 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/_15sdp"
-            android:layout_marginVertical="@dimen/_15sdp"
-            android:text="@string/welcome_back"
+            android:text="@string/let_s_start_here"
             android:textColor="@color/white"
             android:textSize="@dimen/_34sdp"
             android:fontFamily="@font/montserrat"
             android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_15sdp"
+            android:text="@string/fill_in_your_details_to_begin"
+            android:textColor="@color/white"
+            android:fontFamily="@font/montserrat"
+            android:textSize="17sp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_15sdp"
+            android:layout_marginVertical="@dimen/_15sdp"
+            android:hint="@string/full_name"
+            app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+            app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+            app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+            app:boxCornerRadiusTopStart="@dimen/_10sdp"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:endIconMode="clear_text"
+            app:hintTextColor="#AEAEB2">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
+                android:backgroundTint="#F0F0F0"
+                android:textSize="@dimen/_14ssp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -38,7 +70,6 @@
             app:boxCornerRadiusTopStart="@dimen/_10sdp"
             app:boxStrokeWidth="0dp"
             app:boxStrokeWidthFocused="0dp"
-            android:fontFamily="@font/montserrat"
             app:endIconMode="clear_text"
             app:hintTextColor="#AEAEB2">
 
@@ -71,8 +102,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#F0F0F0"
-                android:fontFamily="@font/montserrat"
                 android:inputType="textPassword"
+                android:fontFamily="@font/montserrat"
                 android:textSize="@dimen/_14ssp" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -82,20 +113,20 @@
             android:layout_marginHorizontal="15dp"
             android:background="@drawable/sign_button"
             android:padding="@dimen/_13sdp"
-            android:text="@string/login"
-            android:fontFamily="@font/montserrat"
+            android:text="@string/sign_up"
             android:textAllCaps="false"
+            android:fontFamily="@font/montserrat"
             android:textColor="@color/white"
             android:textSize="@dimen/_12ssp" />
 
         <TextView
-            android:id="@+id/signUp_button"
+            android:id="@+id/login_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginVertical="@dimen/_15sdp"
             android:gravity="center"
-            android:text="@string/don_t_have_an_account"
+            android:text="@string/haveAccount"
             android:fontFamily="@font/montserrat"
             android:textColor="@color/white"
             android:textSize="@dimen/_12ssp" />

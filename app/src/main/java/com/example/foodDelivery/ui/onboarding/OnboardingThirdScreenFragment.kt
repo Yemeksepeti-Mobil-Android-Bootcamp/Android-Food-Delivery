@@ -30,7 +30,7 @@ class OnboardingThirdScreenFragment:Fragment() {
     private fun initViews() {
         binding.homeButton.setOnClickListener(){
             viewModel.saveOnboardingState("onboarding","true")
-            findNavController().navigate(R.id.action_onboardingMainFragment_to_signInFragment)
+            findNavController().navigate(R.id.action_onboardingMainFragment_to_signUpFragment)
         }
     }
 }

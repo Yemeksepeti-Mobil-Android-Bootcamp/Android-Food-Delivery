@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/bg"
+    android:background="@color/primary"
     tools:context=".ui.login.LoginFragment">
 
     <LinearLayout
@@ -47,6 +47,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat"
                 android:backgroundTint="#F0F0F0"
+                android:inputType="textEmailAddress"
                 android:textSize="@dimen/_14ssp" />
 
         </com.google.android.material.textfield.TextInputLayout>

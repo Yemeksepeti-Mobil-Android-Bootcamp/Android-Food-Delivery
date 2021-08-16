@@ -59,9 +59,9 @@
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.example.foodDelivery.ui.signUp.SignUpFragment"
+        android:name="com.example.foodDelivery.ui.register.RegisterFragment"
         android:label="fragment_signup"
-        tools:layout="@layout/fragment_signup" >
+        tools:layout="@layout/fragment_register" >
         <action
             android:id="@+id/action_signUpFragment_to_signInFragment"
             app:destination="@id/signInFragment"

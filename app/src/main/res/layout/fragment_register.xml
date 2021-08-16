@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/bg"
-    tools:context=".ui.signUp.SignUpFragment">
+    android:background="@color/primary"
+    tools:context=".ui.register.RegisterFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -51,6 +51,7 @@
             app:hintTextColor="#AEAEB2">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextTextPersonName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat"
@@ -74,10 +75,12 @@
             app:hintTextColor="#AEAEB2">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextTextEmailAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/montserrat"
                 android:backgroundTint="#F0F0F0"
+                android:fontFamily="@font/montserrat"
+                android:inputType="textEmailAddress"
                 android:textSize="@dimen/_14ssp" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -99,6 +102,7 @@
             app:hintTextColor="#AEAEB2">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextTextPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#F0F0F0"
@@ -108,6 +112,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/registerButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="15dp"
@@ -130,6 +135,15 @@
             android:fontFamily="@font/montserrat"
             android:textColor="@color/white"
             android:textSize="@dimen/_12ssp" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:indeterminateTint="@color/white"
+            android:visibility="gone"
+            android:layout_gravity="center"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

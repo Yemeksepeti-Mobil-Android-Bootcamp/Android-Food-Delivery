@@ -16,11 +16,37 @@
             app:enterAnim="@anim/fade_in"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/fade_out" />
+            app:popExitAnim="@anim/fade_out"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashFragment_to_signInFragment"
+            app:destination="@id/signInFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/onboardingMainFragment"
         android:name="com.example.foodDelivery.ui.onboarding.OnboardingMainFragment"
         android:label="fragment_onboarding_main"
-        tools:layout="@layout/fragment_onboarding_main" />
+        tools:layout="@layout/fragment_onboarding_main" >
+        <action
+            android:id="@+id/action_onboardingMainFragment_to_signInFragment"
+            app:destination="@id/signInFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"
+            app:popUpTo="@id/onboardingMainFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.example.foodDelivery.ui.login.LoginFragment"
+        android:label="fragment_sign_in"
+        tools:layout="@layout/fragment_login" />
 </navigation>

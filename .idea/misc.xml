@@ -4,10 +4,12 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/layout/activity_main.xml" value="0.24010416666666667" />
+        <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/layout/fragment_login.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/layout/fragment_onboarding_first_screen.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/layout/fragment_onboarding_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/layout/fragment_onboarding_second_screen.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/layout/fragment_onboarding_third_screen.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/layout/fragment_sign_in.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/layout/fragment_splash.xml" value="0.25416666666666665" />
       </map>
     </option>

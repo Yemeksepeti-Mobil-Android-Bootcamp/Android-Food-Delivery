@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Food Delivery</string>
+    <string name="order_food">Order food</string>
+    <string name="next">NEXT</string>
+    <string name="get_started">GET STARTED</string>
+    <string name="first_onboarding">Decide where you want to eat and add to cart</string>
+    <string name="second_onboarding">Confirm your order, pay online, or at the door.</string>
+    <string name="third_onboarding">Have your order delivered to your home. Enjoy your meal.</string>
+</resources>

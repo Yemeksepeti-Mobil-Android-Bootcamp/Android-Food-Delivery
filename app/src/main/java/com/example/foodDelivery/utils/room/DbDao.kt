@@ -4,7 +4,7 @@ import androidx.room.*
 import androidx.room.Dao
 
 @Dao
-interface UserDao {
+interface DbDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun addUser(user: LocalUser)

@@ -5,7 +5,7 @@ import androidx.room.Room
 import com.example.foodDelivery.data.local.LocalDataSource
 import com.example.foodDelivery.data.local.MmkvManager
 import com.example.foodDelivery.utils.room.AppDatabase
-import com.example.foodDelivery.utils.room.UserDao
+import com.example.foodDelivery.utils.room.DbDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -24,8 +24,8 @@ class DatabaseModule {
     }
 
     @Provides
-    fun localDataSource(mmkvManager: MmkvManager,userDao: UserDao):LocalDataSource {
-        return LocalDataSource(mmkvManager,userDao)
+    fun localDataSource(mmkvManager: MmkvManager, dbDao: DbDao):LocalDataSource {
+        return LocalDataSource(mmkvManager,dbDao)
     }
 
     @Provides
@@ -38,8 +38,8 @@ class DatabaseModule {
     }
 
     @Provides
-    fun provideUserDao(appDatabase: AppDatabase): UserDao {
-        return appDatabase.userDao()
+    fun provideUserDao(appDatabase: AppDatabase): DbDao {
+        return appDatabase.dbDao()
     }
 
 

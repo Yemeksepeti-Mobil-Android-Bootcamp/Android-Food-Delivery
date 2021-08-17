@@ -2,12 +2,12 @@ package com.example.foodDelivery.data.local
 
 import android.util.Log
 import com.example.foodDelivery.utils.room.LocalUser
-import com.example.foodDelivery.utils.room.UserDao
+import com.example.foodDelivery.utils.room.DbDao
 import javax.inject.Inject
 
 class LocalDataSource@Inject constructor(
     val mmkvManager: MmkvManager,
-    val userDao: UserDao
+    val dbDao: DbDao
 ) {
 
     fun saveString(key:String,value:String){
@@ -20,14 +20,14 @@ class LocalDataSource@Inject constructor(
     }
 
     fun addUser(localUser: LocalUser){
-        userDao.addUser(localUser)
+        dbDao.addUser(localUser)
         Log.v("auth" , localUser.toString())
     }
     fun getUser(userId: Int = 0): LocalUser {
-       return userDao.getUserById(userId)
+       return dbDao.getUserById(userId)
     }
 
     fun removeUser(localUser: LocalUser) {
-        userDao.removeUser(localUser)
+        dbDao.removeUser(localUser)
     }
 }

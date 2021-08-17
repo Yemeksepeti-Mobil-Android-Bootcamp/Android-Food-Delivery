@@ -4,17 +4,39 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="ui.home.HomeFragment">
+    tools:context=".ui.home.HomeFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPagerHome"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="sonunda gelebildin bro"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottomBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:textSize="@dimen/_60ssp"
         app:layout_constraintTop_toTopOf="parent" />
+    <nl.joery.animatedbottombar.AnimatedBottomBar
+        android:backgroundTint="@color/primary"
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bottom_navigation_border"
+        app:abb_indicatorAppearance="round"
+        app:abb_tabAnimation="fade"
+        app:abb_indicatorAnimation="fade"
+        app:abb_indicatorHeight="0dp"
+        app:abb_indicatorMargin="16dp"
+        app:abb_selectedIndex="1"
+        app:abb_selectedTabType="text"
+        app:abb_tabColor="@color/white"
+        app:abb_tabs="@menu/tabs"
+        app:abb_textAppearance="@style/CustomText"
+        app:abb_indicatorColor="@color/secondary"
+        app:abb_tabColorSelected="@color/secondary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:abb_rippleEnabled="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

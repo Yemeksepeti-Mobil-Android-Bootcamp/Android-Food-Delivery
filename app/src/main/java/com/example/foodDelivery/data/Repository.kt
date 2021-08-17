@@ -47,6 +47,10 @@ class Repository @Inject constructor(
         }
     )
 
+    fun getUser(userId: Int = 0): LocalUser {
+        return localDataSource.getUser(userId)
+    }
+
     fun removeUsers(localUser: LocalUser) {
         localDataSource.removeUser(localUser)
     }

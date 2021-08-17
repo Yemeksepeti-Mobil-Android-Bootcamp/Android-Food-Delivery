@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/drawable/bottom_navigation_border.xml" value="0.2703125" />
+        <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.2703125" />
         <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/drawable/ic_login.xml" value="0.2703125" />
         <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/drawable/sign_button.xml" value="1.2571428571428571" />
         <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/layout/activity_main.xml" value="0.24010416666666667" />
@@ -17,6 +19,7 @@
         <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/layout/fragment_sign_in.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/layout/fragment_signup.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/layout/fragment_splash.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/menu/tabs.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>

@@ -50,9 +50,12 @@ class SplashFragment:Fragment() {
                         "onboarding" -> {
                             findNavController().navigate(R.id.action_splashFragment_to_onboardingMainFragment)
                         }
+                        "home" ->{
+                            findNavController().navigate(R.id.action_splashFragment_to_homeFragment)
+                        }
                     }
                 })
-                viewModel.checkOnboardingAndNavigation("onboarding")
+                viewModel.checkAndNavigation("onboarding")
             }
             override fun onAnimationCancel(animation: Animator?) {
                 Log.v("Animation","Canceled")

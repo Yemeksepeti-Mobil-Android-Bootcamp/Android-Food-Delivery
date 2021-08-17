@@ -1,12 +1,12 @@
 package com.example.foodDelivery.ui.onboarding
 
-import DepthPageTransformer
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.foodDelivery.databinding.FragmentOnboardingMainBinding
+import com.example.foodDelivery.utils.anim.DepthPageTransformer
 
 class OnboardingMainFragment:Fragment(){
     private lateinit var binding: FragmentOnboardingMainBinding

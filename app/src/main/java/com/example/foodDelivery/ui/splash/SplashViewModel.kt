@@ -1,28 +1,36 @@
 package com.example.foodDelivery.ui.splash
 
-import android.view.AbsSavedState
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import com.example.foodDelivery.data.ApiRepository
+import com.example.foodDelivery.data.Repository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
 class SplashViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
-    val apiRepository: ApiRepository
+    val repository: Repository
 ):ViewModel() {
     private var navigationLiveData = MutableLiveData<String>()
     fun observeNavigationLiveData(): LiveData<String> = navigationLiveData
 
-    fun checkOnboardingAndNavigation(key:String){
-        if (!apiRepository.getString(key).isNullOrEmpty())
-            navigationLiveData.value = "auth"
+    fun checkAndNavigation(key:String){
+        if (!repository.getString(key).isNullOrEmpty()){
+            checkToken("token")
+        }
+
         else {
             navigationLiveData.value = "onboarding"
         }
     }
 
+    private fun checkToken(key: String){
+        if (!repository.getString(key).isNullOrEmpty())
+            navigationLiveData.value = "home"
+        else {
+            navigationLiveData.value = "auth"
+        }
+    }
 }

@@ -1,9 +1,11 @@
 package com.example.foodDelivery.di
 
 import android.content.Context
+import androidx.room.Room
 import com.example.foodDelivery.data.local.LocalDataSource
 import com.example.foodDelivery.data.local.MmkvManager
-import com.tencent.mmkv.MMKV
+import com.example.foodDelivery.utils.room.AppDatabase
+import com.example.foodDelivery.utils.room.UserDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -22,8 +24,22 @@ class DatabaseModule {
     }
 
     @Provides
-    fun localDataSource(mmkvManager: MmkvManager):LocalDataSource {
-        return LocalDataSource(mmkvManager)
+    fun localDataSource(mmkvManager: MmkvManager,userDao: UserDao):LocalDataSource {
+        return LocalDataSource(mmkvManager,userDao)
+    }
+
+    @Provides
+    fun provideRoomDb(@ApplicationContext context: Context):AppDatabase{
+        return Room
+            .databaseBuilder(context,AppDatabase::class.java,"FoodDeliveryDb")
+            .allowMainThreadQueries()
+            .fallbackToDestructiveMigration()
+            .build()
+    }
+
+    @Provides
+    fun provideUserDao(appDatabase: AppDatabase): UserDao {
+        return appDatabase.userDao()
     }
 
 

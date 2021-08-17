@@ -1,3 +1,5 @@
+package com.example.foodDelivery.utils.anim
+
 import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.viewpager2.widget.ViewPager2

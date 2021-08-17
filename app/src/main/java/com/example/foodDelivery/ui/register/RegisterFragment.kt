@@ -48,15 +48,13 @@ class RegisterFragment : Fragment() {
                 }
                 Resource.Status.SUCCESS -> {
                     binding.progressBar.gone()
-                    Log.v("deneme",it.data.toString())
+                    findNavController().navigate(R.id.action_signUpFragment_to_homeFragment)
                 }
                 Resource.Status.ERROR -> {
                     binding.progressBar.gone()
                 }
             }
         })
-
-
     }
 
     private fun setListener() {

@@ -1,5 +1,6 @@
 package com.example.foodDelivery.data.entity.common
 
+import com.example.foodDelivery.utils.room.LocalUser
 import com.google.gson.annotations.SerializedName
 
 data class Data(
@@ -9,8 +10,8 @@ data class Data(
     val name: String,
     @SerializedName("role")
     val role: String
-)//{
-//    fun toLocalUser(): LocalUser {
-//        return LocalUser(name = name, email = email, role = role)
-//    }
-//}
+) {
+    fun toLocalUser(): LocalUser {
+        return LocalUser(name = name, email = email, role = role)
+    }
+}

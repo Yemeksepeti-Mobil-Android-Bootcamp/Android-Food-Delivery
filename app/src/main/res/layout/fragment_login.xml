@@ -43,10 +43,12 @@
             app:hintTextColor="#AEAEB2">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextEmailAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat"
                 android:backgroundTint="#F0F0F0"
+                android:text="oktyagca@gmail.com"
                 android:inputType="textEmailAddress"
                 android:textSize="@dimen/_14ssp" />
 
@@ -69,15 +71,18 @@
             app:hintTextColor="#AEAEB2">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#F0F0F0"
                 android:fontFamily="@font/montserrat"
+                android:text="123456"
                 android:inputType="textPassword"
                 android:textSize="@dimen/_14ssp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/loginButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="15dp"
@@ -100,6 +105,15 @@
             android:fontFamily="@font/montserrat"
             android:textColor="@color/white"
             android:textSize="@dimen/_12ssp" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:indeterminateTint="@color/white"
+            android:visibility="gone"
+            android:layout_gravity="center"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

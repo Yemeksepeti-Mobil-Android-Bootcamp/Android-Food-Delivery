@@ -76,5 +76,10 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
     //mmkv
     implementation 'com.tencent:mmkv-static:1.2.10'
+    //RoomDB
+    implementation "androidx.room:room-runtime:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+
 
 }

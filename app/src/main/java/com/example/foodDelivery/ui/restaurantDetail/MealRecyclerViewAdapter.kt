@@ -20,6 +20,7 @@ class MealRecyclerViewAdapter:RecyclerView.Adapter<MealRecyclerViewAdapter.MealV
             binding.mealTitleTextView.text = item.name
             binding.mealDescriptionTextView.text = item.address
             binding.mealPriceTextView.text = item.time
+            binding.mealCardView.setOnClickListener(this)
         }
         override fun onClick(v: View?) {
             onCargoListener.onRestaurantClick(adapterPosition)

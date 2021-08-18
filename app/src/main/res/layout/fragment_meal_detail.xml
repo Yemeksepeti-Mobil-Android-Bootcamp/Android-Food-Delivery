@@ -4,18 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.restaurantDetail.RestaurantDetailFragment">
-    <TextView
-        android:id="@+id/textView2"
+    android:background="@color/bg"
+    android:padding="16dp"
+    tools:context=".ui.meal.MealDetailFragment">
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/backButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:text="@string/restaurant_detail"
-        android:textColor="@color/primary"
-        android:textSize="@dimen/_14ssp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:background="@null"
+        android:padding="@dimen/_10sdp"
+        android:src="@drawable/ic_baseline_arrow_back_24"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:contentDescription="Back Button" />
 
 
     <androidx.cardview.widget.CardView
@@ -28,7 +30,7 @@
         app:cardCornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2">
+        app:layout_constraintTop_toBottomOf="@+id/backButton">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -58,7 +60,7 @@
                 android:textSize="@dimen/_12ssp"
                 app:layout_constraintStart_toEndOf="@+id/imageView"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="Restaurant Name" />
+                tools:text="Meal Name" />
 
             <TextView
                 android:id="@+id/address"
@@ -70,7 +72,7 @@
                 android:textSize="@dimen/_10ssp"
                 app:layout_constraintStart_toEndOf="@+id/imageView"
                 app:layout_constraintTop_toBottomOf="@+id/name"
-                tools:text="Address" />
+                tools:text="Description" />
 
             <TextView
                 android:id="@+id/time"
@@ -80,7 +82,7 @@
                 android:fontFamily="@font/montserrat"
                 android:textColor="@color/primary"
                 android:textSize="@dimen/_11sdp"
-                tools:text="Time" />
+                tools:text="Price" />
 
 
         </LinearLayout>
@@ -92,7 +94,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_6sdp"
-        app:layout_constraintTop_toBottomOf="@+id/cardView"
-        tools:layout_editor_absoluteX="-2dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/orderButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:background="@drawable/sign_button"
+        android:paddingVertical="16dp"
+        android:text="@string/add_to_cart"
+        android:textAllCaps="false"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

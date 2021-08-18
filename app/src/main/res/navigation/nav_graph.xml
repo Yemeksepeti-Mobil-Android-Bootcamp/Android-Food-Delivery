@@ -113,5 +113,18 @@
         android:id="@+id/restaurantDetailFragment"
         android:name="com.example.foodDelivery.ui.restaurantDetail.RestaurantDetailFragment"
         android:label="fragment_restaurant_detail"
-        tools:layout="@layout/fragment_restaurant_detail" />
+        tools:layout="@layout/fragment_restaurant_detail" >
+        <action
+            android:id="@+id/action_restaurantDetailFragment_to_mealDetailFragment"
+            app:destination="@id/mealDetailFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/mealDetailFragment"
+        android:name="com.example.foodDelivery.ui.meal.MealDetailFragment"
+        android:label="fragment_meal_detail"
+        tools:layout="@layout/fragment_meal_detail" />
 </navigation>

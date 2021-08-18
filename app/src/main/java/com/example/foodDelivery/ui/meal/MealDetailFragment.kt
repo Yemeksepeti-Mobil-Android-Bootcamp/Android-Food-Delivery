@@ -1,28 +1,26 @@
-package com.example.foodDelivery.ui.restaurantDetail
+package com.example.foodDelivery.ui.meal
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.foodDelivery.R
-import com.example.foodDelivery.databinding.FragmentRestaurantDetailBinding
-import com.example.foodDelivery.ui.restaurantList.OnRestaurantListener
+import com.example.foodDelivery.databinding.FragmentMealDetailBinding
+import com.example.foodDelivery.ui.restaurantDetail.MealRecyclerViewAdapter
 import com.example.foodDelivery.ui.restaurantList.Restaurant
 
-class RestaurantDetailFragment: Fragment(),OnMealListener {
+class MealDetailFragment:Fragment(),OnIngredientsListener {
 
-    private var _binding: FragmentRestaurantDetailBinding? = null
+    private var _binding: FragmentMealDetailBinding? = null
     private val binding get() = _binding!!
-    private var adapter: MealRecyclerViewAdapter = MealRecyclerViewAdapter()
+    private var adapter: IngredientsRecylerViewAdapter = IngredientsRecylerViewAdapter()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentRestaurantDetailBinding.inflate(inflater, container, false)
+        _binding = FragmentMealDetailBinding.inflate(inflater, container, false)
         setData()
         initViews()
         return binding.root
@@ -33,7 +31,7 @@ class RestaurantDetailFragment: Fragment(),OnMealListener {
         for (i in 0..100) {
             data.add(Restaurant("name $i", "address - $i","time- $i"))
         }
-        adapter.setMealList(data,this)
+        adapter.setIngredientList(data,this)
     }
 
 
@@ -43,7 +41,5 @@ class RestaurantDetailFragment: Fragment(),OnMealListener {
     }
 
     override fun onRestaurantClick(position: Int) {
-        findNavController().navigate(R.id.action_restaurantDetailFragment_to_mealDetailFragment)
     }
-
 }

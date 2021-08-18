@@ -4,15 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.foodDelivery.R
 import com.example.foodDelivery.databinding.FragmentRestaurantDetailBinding
-import com.example.foodDelivery.ui.restaurantList.OnRestaurantListener
-import com.example.foodDelivery.ui.restaurantList.Restaurant
+import com.example.foodDelivery.ui.BaseFragment
 
-class RestaurantDetailFragment: Fragment(),OnMealListener {
+class RestaurantDetailFragment: BaseFragment() {
 
     private var _binding: FragmentRestaurantDetailBinding? = null
     private val binding get() = _binding!!
@@ -29,11 +27,11 @@ class RestaurantDetailFragment: Fragment(),OnMealListener {
     }
 
     private fun setData() {
-        val data = ArrayList<Restaurant>()
-        for (i in 0..100) {
-            data.add(Restaurant("name $i", "address - $i","time- $i"))
-        }
-        adapter.setMealList(data,this)
+//        val data = ArrayList<Restaurant>()
+//        for (i in 0..100) {
+//            data.add(Restaurant("name $i", "address - $i","time- $i"))
+//        }
+//        adapter.setMealList(data,this)
     }
 
 
@@ -42,7 +40,7 @@ class RestaurantDetailFragment: Fragment(),OnMealListener {
         binding.recyclerView.adapter = adapter
     }
 
-    override fun onRestaurantClick(position: Int) {
+    override fun onClick(position: Int) {
         findNavController().navigate(R.id.action_restaurantDetailFragment_to_mealDetailFragment)
     }
 

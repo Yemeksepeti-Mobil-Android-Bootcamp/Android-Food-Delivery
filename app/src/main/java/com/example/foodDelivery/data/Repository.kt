@@ -5,6 +5,7 @@ import com.example.foodDelivery.data.entity.register.RegisterRequest
 import com.example.foodDelivery.data.local.LocalDataSource
 import com.example.foodDelivery.data.remote.RemoteDataSource
 import com.example.foodDelivery.utils.performAuthNetworkOperation
+import com.example.foodDelivery.utils.performNetworkOperation
 import com.example.foodDelivery.utils.room.LocalUser
 import javax.inject.Inject
 
@@ -46,6 +47,11 @@ class Repository @Inject constructor(
             localDataSource.addUser(user)
         }
     )
+
+    fun getRestaurants() =
+        performNetworkOperation {
+            remoteDataSource.getRestaurants()
+        }
 
     fun getUser(userId: Int = 0): LocalUser {
         return localDataSource.getUser(userId)

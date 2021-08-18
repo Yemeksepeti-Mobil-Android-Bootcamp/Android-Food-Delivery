@@ -7,13 +7,13 @@
     android:background="@color/bg"
     tools:context=".ui.restaurantList.RestaurantListFragment">
 
+
+
     <androidx.cardview.widget.CardView
+        android:backgroundTint="@color/primary"
         android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:elevation="10dp"
-        app:cardBackgroundColor="@color/primary"
         app:cardCornerRadius="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,6 +40,7 @@
 
             <androidx.appcompat.widget.SearchView
                 android:layout_marginBottom="@dimen/_6sdp"
+                android:layout_marginHorizontal="@dimen/_6sdp"
                 android:backgroundTint="@color/white"
                 android:background="@drawable/sign_button"
                 app:searchIcon="@drawable/ic_baseline_location_on_24"
@@ -54,13 +55,28 @@
     </androidx.cardview.widget.CardView>
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_6sdp"
+        android:layout_gravity="center"
+        android:backgroundTint="@color/primary"
+        android:indeterminateTint="@color/primary"
+        android:visibility="gone"
+        android:layout_margin="@dimen/_10sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/_6sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

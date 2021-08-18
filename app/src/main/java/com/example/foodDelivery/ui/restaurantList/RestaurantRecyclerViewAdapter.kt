@@ -1,6 +1,7 @@
 package com.example.foodDelivery.ui.restaurantList
 
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,12 +11,12 @@ import com.example.foodDelivery.databinding.ItemRestaurantBinding
 
 class RestaurantRecyclerViewAdapter:RecyclerView.Adapter<RestaurantRecyclerViewAdapter.RestaurantViewHolder>() {
     private lateinit var binding: ItemRestaurantBinding
-    private lateinit var  onCargoListener :OnCargoListener
+    private lateinit var  onCargoListener :OnRestaurantListener
     private  var cargoList:List<Restaurant> = mutableListOf()
 
     class RestaurantViewHolder(private val binding: ItemRestaurantBinding):RecyclerView.ViewHolder(binding.root),View.OnClickListener{
-        lateinit var  onCargoListener :OnCargoListener
-        fun setItem(item: Restaurant,onCargoListener: OnCargoListener) {
+        private lateinit var   onCargoListener :OnRestaurantListener
+        fun setItem(item: Restaurant,onCargoListener: OnRestaurantListener) {
             this.onCargoListener = onCargoListener
             binding.name.text = item.name
             binding.address.text = item.address
@@ -23,11 +24,12 @@ class RestaurantRecyclerViewAdapter:RecyclerView.Adapter<RestaurantRecyclerViewA
             binding.cardView.setOnClickListener(this)
         }
         override fun onClick(v: View?) {
-            onCargoListener.OnCargoClick(adapterPosition)
+            onCargoListener.onRestaurantClick(adapterPosition)
         }
     }
 
-    fun setRestaurantList(cargoList: ArrayList<Restaurant>,onCargoListener: OnCargoListener) {
+
+    fun setRestaurantList(cargoList: ArrayList<Restaurant>, onCargoListener: OnRestaurantListener) {
         this.onCargoListener =onCargoListener
         this.cargoList = cargoList
         println(cargoList.size)
@@ -51,6 +53,6 @@ class RestaurantRecyclerViewAdapter:RecyclerView.Adapter<RestaurantRecyclerViewA
     override fun getItemCount():Int  = cargoList.size
 }
 
-interface OnCargoListener{
-    fun OnCargoClick(position:Int)
+interface OnRestaurantListener{
+    fun onRestaurantClick(position:Int)
 }

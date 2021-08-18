@@ -4,11 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.foodDelivery.data.entity.restaurant.Restaurant
 import com.example.foodDelivery.databinding.FragmentMealDetailBinding
 import com.example.foodDelivery.ui.BaseFragment
 
-class MealDetailFragment: BaseFragment() {
+class MealDetailFragment: Fragment() {
 
     private var _binding: FragmentMealDetailBinding? = null
     private val binding get() = _binding!!
@@ -38,6 +40,4 @@ class MealDetailFragment: BaseFragment() {
         binding.recyclerView.adapter = adapter
     }
 
-    override fun onClick(position: Int) {
-    }
 }

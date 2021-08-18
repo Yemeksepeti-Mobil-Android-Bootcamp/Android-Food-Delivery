@@ -10,24 +10,17 @@ import com.example.foodDelivery.ui.IOnClickListener
 
 class IngredientsRecyclerViewAdapter: RecyclerView.Adapter<IngredientsRecyclerViewAdapter.IngredientsViewHolder>() {
     private lateinit var binding: ItemIngredientBinding
-    private lateinit var  onClickListener : IOnClickListener
     private  var ingredientsList:List<Restaurant> = mutableListOf()
 
-    class IngredientsViewHolder(private val binding: ItemIngredientBinding): RecyclerView.ViewHolder(binding.root),
-        View.OnClickListener{
-        private lateinit var   onClickListener :IOnClickListener
-        fun setItem(item: Restaurant, onClickListener: IOnClickListener) {
-            this.onClickListener = onClickListener
+    class IngredientsViewHolder(private val binding: ItemIngredientBinding): RecyclerView.ViewHolder(binding.root){
+
+        fun bind(item: Restaurant) {
             binding.ingredientNameTextView.text = item.name
-        }
-        override fun onClick(v: View?) {
-            onClickListener.onClick(adapterPosition)
         }
     }
 
 
-    fun setIngredientList(ingredientsList: ArrayList<Restaurant>, onClickListener: IOnClickListener) {
-        this.onClickListener =onClickListener
+    fun setIngredientList(ingredientsList: ArrayList<Restaurant>) {
         this.ingredientsList = ingredientsList
         println(ingredientsList.size)
         notifyDataSetChanged()
@@ -44,7 +37,7 @@ class IngredientsRecyclerViewAdapter: RecyclerView.Adapter<IngredientsRecyclerVi
 
     override fun onBindViewHolder(holder: IngredientsViewHolder, position: Int) {
         val item = ingredientsList[position]
-        holder.setItem(item,onClickListener)
+        holder.bind(item)
     }
 
     override fun getItemCount():Int  = ingredientsList.size

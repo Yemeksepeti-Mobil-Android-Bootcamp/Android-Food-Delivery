@@ -4,6 +4,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.example.foodDelivery.data.entity.meal.Meal
 import com.example.foodDelivery.data.entity.restaurant.Restaurant
 import com.example.foodDelivery.databinding.ItemMealBinding
 import com.example.foodDelivery.ui.IOnClickListener
@@ -12,23 +14,23 @@ import com.example.foodDelivery.ui.IOnClickListener
 class MealRecyclerViewAdapter:RecyclerView.Adapter<MealRecyclerViewAdapter.MealViewHolder>() {
     private lateinit var binding: ItemMealBinding
     private lateinit var  onClickListener :IOnClickListener
-    private  var mealList:List<Restaurant> = mutableListOf()
+    private  var mealList:List<Meal> = mutableListOf()
 
-    class MealViewHolder(private val binding: ItemMealBinding):RecyclerView.ViewHolder(binding.root),View.OnClickListener{
-        private lateinit var   onClickListener :IOnClickListener
-        fun setItem(item: Restaurant, onClickListener: IOnClickListener) {
-            this.onClickListener = onClickListener
-            binding.mealTitleTextView.text = item.name
-            binding.mealDescriptionTextView.text = item.address
-            binding.mealCardView.setOnClickListener(this)
-        }
-        override fun onClick(v: View?) {
-            onClickListener.onClick(adapterPosition)
+    class MealViewHolder(private val binding: ItemMealBinding):RecyclerView.ViewHolder(binding.root){
+        fun bind(item: Meal, onClickListener: IOnClickListener) {
+            binding.apply {
+                mealTitleTextView.text = item.name
+                mealDescriptionTextView.text = item.description
+                mealPriceTextView.text = "${item.price}$"
+                Glide.with(mealImageView.context)
+                    .load(item.image).into(mealImageView)
+            }
+            binding.mealCardView.setOnClickListener{
+                onClickListener.onClickMeal(item)
+            }
         }
     }
-
-
-    fun setMealList(mealList: ArrayList<Restaurant>, onClickListener: IOnClickListener) {
+    fun setMealList(mealList: List<Meal>, onClickListener: IOnClickListener) {
         this.onClickListener =onClickListener
         this.mealList = mealList
         println(mealList.size)
@@ -46,7 +48,7 @@ class MealRecyclerViewAdapter:RecyclerView.Adapter<MealRecyclerViewAdapter.MealV
 
     override fun onBindViewHolder(holder: MealViewHolder, position: Int) {
         val item = mealList[position]
-        holder.setItem(item,onClickListener)
+        holder.bind(item,onClickListener)
     }
 
     override fun getItemCount():Int  = mealList.size

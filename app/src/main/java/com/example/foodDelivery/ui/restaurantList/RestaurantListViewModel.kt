@@ -20,4 +20,5 @@ class RestaurantListViewModel @Inject constructor(
 
     fun getRestaurants(): LiveData<Resource<RestaurantListResponse>> =
         repository.getRestaurants()
+
 }

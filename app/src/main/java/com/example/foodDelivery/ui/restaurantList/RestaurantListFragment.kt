@@ -10,9 +10,11 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.foodDelivery.R
+import com.example.foodDelivery.data.entity.meal.Meal
 import com.example.foodDelivery.data.entity.restaurant.Restaurant
 import com.example.foodDelivery.databinding.FregmentRestaurantListBinding
 import com.example.foodDelivery.ui.BaseFragment
+import com.example.foodDelivery.ui.home.HomeFragmentDirections
 import com.example.foodDelivery.utils.Resource
 import com.example.foodDelivery.utils.gone
 import com.example.foodDelivery.utils.show
@@ -41,6 +43,8 @@ class RestaurantListFragment:BaseFragment()  {
         getRestaurants()
     }
 
+
+
     private fun getRestaurants() {
         viewModel.getRestaurants().observe(viewLifecycleOwner, { response ->
             when (response.status) {
@@ -66,7 +70,6 @@ class RestaurantListFragment:BaseFragment()  {
         })
     }
 
-
     private fun setData(restaurantList: List<Restaurant>) {
         adapter.setRestaurantList(restaurantList,this)
         }
@@ -77,8 +80,13 @@ class RestaurantListFragment:BaseFragment()  {
         binding.recyclerView.adapter = adapter
     }
 
-    override fun onClick(position: Int) {
-        findNavController().navigate(R.id.action_homeFragment_to_restaurantDetailFragment)
+    override fun onClick(restaurant: Restaurant) {
+        val action = HomeFragmentDirections.actionHomeFragmentToRestaurantDetailFragment(restaurant.id)
+        findNavController().navigate(action)
+    }
+
+    override fun onClickMeal(restaurant: Meal) {
+        TODO("Not yet implemented")
     }
 
 }

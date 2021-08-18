@@ -1,46 +1,87 @@
 package com.example.foodDelivery.ui.restaurantDetail
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.foodDelivery.R
+import com.example.foodDelivery.data.entity.meal.Meal
+import com.example.foodDelivery.data.entity.restaurant.Restaurant
 import com.example.foodDelivery.databinding.FragmentRestaurantDetailBinding
 import com.example.foodDelivery.ui.BaseFragment
+import com.example.foodDelivery.utils.Resource
+import com.example.foodDelivery.utils.gone
+import com.example.foodDelivery.utils.show
+import dagger.hilt.android.AndroidEntryPoint
 
+
+@AndroidEntryPoint
 class RestaurantDetailFragment: BaseFragment() {
-
+    private val viewModel: RestaurantDetailViewModel by viewModels()
     private var _binding: FragmentRestaurantDetailBinding? = null
     private val binding get() = _binding!!
     private var adapter: MealRecyclerViewAdapter = MealRecyclerViewAdapter()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentRestaurantDetailBinding.inflate(inflater, container, false)
-        setData()
         initViews()
+        getRestaurant()
         return binding.root
     }
 
-    private fun setData() {
-//        val data = ArrayList<Restaurant>()
-//        for (i in 0..100) {
-//            data.add(Restaurant("name $i", "address - $i","time- $i"))
-//        }
-//        adapter.setMealList(data,this)
+
+    private fun setData(restaurant: Restaurant) {
+        binding.apply {
+            name.text = restaurant.name
+            address.text = restaurant.address
+            time.text = restaurant.deliveryTime
+        }
+        adapter.setMealList(restaurant.meals,this)
     }
 
-
+    private fun getRestaurant() {
+        viewModel.getRestaurant().observe(viewLifecycleOwner, { response ->
+            when (response.status) {
+                Resource.Status.LOADING ->{
+                    binding.progressBar.show()
+                }
+                Resource.Status.SUCCESS -> {
+                    binding.progressBar.gone()
+                    response.data?.let {
+                        setData(it.data)
+                    }
+                }
+                Resource.Status.ERROR -> {
+                    binding.progressBar.gone()
+                    val dialog = AlertDialog.Builder(context)
+                        .setTitle("Error")
+                        .setMessage("${response.message}")
+                        .setPositiveButton("ok") { dialog, button ->
+                            dialog.dismiss()
+                        }
+                    dialog.show()
+                }
+            }
+        })
+    }
     private fun initViews() {
         binding.recyclerView.layoutManager = LinearLayoutManager(context)
         binding.recyclerView.adapter = adapter
     }
 
-    override fun onClick(position: Int) {
+    override fun onClick(restaurant: Restaurant) {
+
+    }
+
+    override fun onClickMeal(restaurant: Meal) {
         findNavController().navigate(R.id.action_restaurantDetailFragment_to_mealDetailFragment)
     }
 

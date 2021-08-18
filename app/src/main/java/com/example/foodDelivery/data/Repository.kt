@@ -53,6 +53,11 @@ class Repository @Inject constructor(
             remoteDataSource.getRestaurants()
         }
 
+    fun getRestaurantById(id: String) =
+        performNetworkOperation {
+            remoteDataSource.getRestaurantById(id)
+        }
+
     fun getUser(userId: Int = 0): LocalUser {
         return localDataSource.getUser(userId)
     }

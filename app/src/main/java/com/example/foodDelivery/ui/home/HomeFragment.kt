@@ -28,7 +28,7 @@ class HomeFragment: Fragment() {
     }
 
     private fun initViews() {
-        val adapter = OnboardingViewPagerAdapter(requireActivity())
+        val adapter = HomeViewPagerAdapter(requireActivity())
         binding.apply {
             viewPagerHome.adapter = adapter
 //            viewPagerHome.setPageTransformer(DepthPageTransformer())

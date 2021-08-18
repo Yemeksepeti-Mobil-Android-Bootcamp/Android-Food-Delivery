@@ -16,7 +16,8 @@
     <string name="don_t_have_an_account">Don\'t have an account? Sign up</string>
     <string name="login">Login</string>
     <string name="welcome_back">Welcome Back</string>
-    <string name="home">Home</string>
+    <string name="profile">Profile</string>
     <string name="restaurant_list">Restaurant List</string>
     <string name="basket">Basket</string>
+    <string name="location">Restaurants For Your Location</string>
 </resources>

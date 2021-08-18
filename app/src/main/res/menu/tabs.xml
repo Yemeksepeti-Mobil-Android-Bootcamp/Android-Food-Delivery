@@ -9,6 +9,6 @@
         android:title="@string/restaurant_list" />
     <item
         android:id="@+id/tab_home2"
-        android:icon="@drawable/ic_baseline_home_24"
-        android:title="@string/home" />
+        android:icon="@drawable/ic_baseline_person_outline_24"
+        android:title="@string/profile" />
 </menu>

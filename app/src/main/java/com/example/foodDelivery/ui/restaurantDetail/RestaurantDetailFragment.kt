@@ -8,11 +8,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.example.foodDelivery.R
 import com.example.foodDelivery.data.entity.meal.Meal
 import com.example.foodDelivery.data.entity.restaurant.Restaurant
 import com.example.foodDelivery.databinding.FragmentRestaurantDetailBinding
 import com.example.foodDelivery.ui.BaseFragment
+import com.example.foodDelivery.ui.home.HomeFragmentDirections
 import com.example.foodDelivery.utils.Resource
 import com.example.foodDelivery.utils.gone
 import com.example.foodDelivery.utils.show
@@ -43,6 +45,8 @@ class RestaurantDetailFragment: BaseFragment() {
             name.text = restaurant.name
             address.text = restaurant.address
             time.text = restaurant.deliveryTime
+            Glide.with(imageView.context)
+                .load(restaurant.image).into(imageView)
         }
         adapter.setMealList(restaurant.meals,this)
     }
@@ -81,8 +85,9 @@ class RestaurantDetailFragment: BaseFragment() {
 
     }
 
-    override fun onClickMeal(restaurant: Meal) {
-        findNavController().navigate(R.id.action_restaurantDetailFragment_to_mealDetailFragment)
+    override fun onClickMeal(meal: Meal) {
+        val action = RestaurantDetailFragmentDirections.actionRestaurantDetailFragmentToMealDetailFragment(meal.id)
+        findNavController().navigate(action)
     }
 
 }

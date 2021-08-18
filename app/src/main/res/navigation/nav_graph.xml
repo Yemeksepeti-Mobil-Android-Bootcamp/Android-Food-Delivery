@@ -129,5 +129,9 @@
         android:id="@+id/mealDetailFragment"
         android:name="com.example.foodDelivery.ui.meal.MealDetailFragment"
         android:label="fragment_meal_detail"
-        tools:layout="@layout/fragment_meal_detail" />
+        tools:layout="@layout/fragment_meal_detail" >
+        <argument
+            android:name="mealId"
+            app:argType="string" />
+    </fragment>
 </navigation>

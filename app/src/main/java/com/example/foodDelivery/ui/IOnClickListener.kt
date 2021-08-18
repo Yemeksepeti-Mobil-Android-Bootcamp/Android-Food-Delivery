@@ -7,4 +7,5 @@ import com.example.foodDelivery.data.entity.restaurant.Restaurant
      fun onClick(restaurant:Restaurant)
 
      fun onClickMeal(restaurant:Meal)
+
 }

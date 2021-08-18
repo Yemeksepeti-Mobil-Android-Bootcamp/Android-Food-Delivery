@@ -10,17 +10,17 @@ import com.example.foodDelivery.ui.IOnClickListener
 
 class IngredientsRecyclerViewAdapter: RecyclerView.Adapter<IngredientsRecyclerViewAdapter.IngredientsViewHolder>() {
     private lateinit var binding: ItemIngredientBinding
-    private  var ingredientsList:List<Restaurant> = mutableListOf()
+    private  var ingredientsList:List<String> = mutableListOf()
 
     class IngredientsViewHolder(private val binding: ItemIngredientBinding): RecyclerView.ViewHolder(binding.root){
 
-        fun bind(item: Restaurant) {
-            binding.ingredientNameTextView.text = item.name
+        fun bind(item: String) {
+            binding.ingredientNameTextView.text = item
         }
     }
 
 
-    fun setIngredientList(ingredientsList: ArrayList<Restaurant>) {
+    fun setIngredientList(ingredientsList: ArrayList<String>) {
         this.ingredientsList = ingredientsList
         println(ingredientsList.size)
         notifyDataSetChanged()

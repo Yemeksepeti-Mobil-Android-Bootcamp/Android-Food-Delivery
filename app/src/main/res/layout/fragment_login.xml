@@ -95,7 +95,7 @@
             android:textSize="@dimen/_12ssp" />
 
         <TextView
-            android:id="@+id/signUp_button"
+            android:id="@+id/signUpButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

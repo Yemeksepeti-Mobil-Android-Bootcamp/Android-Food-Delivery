@@ -1,34 +1,40 @@
 package com.example.foodDelivery.ui.restaurantList
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.foodDelivery.data.entity.restaurant.Restaurant
 import com.example.foodDelivery.databinding.ItemRestaurantBinding
 import com.example.foodDelivery.ui.IOnClickListener
+import com.example.foodDelivery.utils.gone
 
 class RestaurantRecyclerViewAdapter:RecyclerView.Adapter<RestaurantRecyclerViewAdapter.RestaurantViewHolder>() {
     private lateinit var binding: ItemRestaurantBinding
-    private lateinit var  onClickListener : IOnClickListener
+    private lateinit var  onClickListener : IRestaurantListener
     private  var restaurant:List<Restaurant> = mutableListOf()
 
     class RestaurantViewHolder(private val binding: ItemRestaurantBinding):RecyclerView.ViewHolder(binding.root){
-        fun bind(item: Restaurant, onClickListener: IOnClickListener) {
+        fun bind(item: Restaurant, onClickListener: IRestaurantListener) {
             binding.apply {
-                name.text = item.name
-                address.text = item.address
-                time.text = item.deliveryTime
+                restaurantNameTextView.text = item.name
+                restaurantAddressTextView.text = item.address
+                deliveryTimeTextView.text = "${item.deliveryTime} min."
+                paymentTextView.text = item.paymentMethods
+                minDeliveryFeeTextView.text = "min ${item.minimumDeliveryFee}$"
                 Glide.with(imageView.context)
                     .load(item.image).into(imageView)
+                favDeleteButton.gone()
+                cardView.setOnClickListener{
+                    onClickListener.onClick(item)
             }
-            binding.cardView.setOnClickListener{
-                onClickListener.onClick(item)
+                favButton.setOnClickListener{
+                    onClickListener.onFavoriteClick(item)
+                }
             }
         }
     }
-    fun setRestaurantList(restaurant: List<Restaurant>, onClickListener: IOnClickListener) {
+    fun setRestaurantList(restaurant: List<Restaurant>, onClickListener: IRestaurantListener) {
         this.onClickListener =onClickListener
         this.restaurant = restaurant
         println(restaurant.size)

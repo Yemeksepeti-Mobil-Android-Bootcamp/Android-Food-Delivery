@@ -51,11 +51,11 @@
             app:hintTextColor="#AEAEB2">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextTextPersonName"
+                android:id="@+id/personNameEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/montserrat"
                 android:backgroundTint="#F0F0F0"
+                android:fontFamily="@font/montserrat"
                 android:textSize="@dimen/_14ssp" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -75,7 +75,7 @@
             app:hintTextColor="#AEAEB2">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextTextEmailAddress"
+                android:id="@+id/emailAddressEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#F0F0F0"
@@ -102,7 +102,7 @@
             app:hintTextColor="#AEAEB2">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextTextPassword"
+                android:id="@+id/passwordEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#F0F0F0"
@@ -125,7 +125,7 @@
             android:textSize="@dimen/_12ssp" />
 
         <TextView
-            android:id="@+id/login_button"
+            android:id="@+id/loginButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

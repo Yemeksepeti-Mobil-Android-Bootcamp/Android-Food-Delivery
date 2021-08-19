@@ -1,8 +1,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/tab_home"
-        android:icon="@drawable/ic_baseline_shopping_basket_24"
-        android:title="@string/basket" />
+        android:icon="@drawable/ic_baseline_favorite_border_24"
+        android:title="@string/favourite" />
     <item
         android:id="@+id/tab_home1"
         android:icon="@drawable/ic_baseline_fastfood_24"

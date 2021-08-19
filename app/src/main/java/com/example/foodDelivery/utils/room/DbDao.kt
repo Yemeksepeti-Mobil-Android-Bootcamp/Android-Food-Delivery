@@ -11,7 +11,7 @@ interface DbDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun addUser(user: LocalUser)
 
-    @Query("SELECT * FROM localuser WHERE userId=:userId LIMIT 1")
+    @Query("SELECT * FROM LocalUser WHERE userId=:userId LIMIT 1")
     fun getUserById(userId: Int = 0): LocalUser
 
     @Delete

@@ -4,11 +4,17 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/drawable/bottom_navigation_border.xml" value="0.2703125" />
+        <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/drawable/ic_avatar.xml" value="0.2703125" />
         <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/drawable/ic_baseline_access_time_24.xml" value="0.2703125" />
+        <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/drawable/ic_baseline_attach_money_24.xml" value="0.17533783783783785" />
+        <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.17533783783783785" />
+        <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/drawable/ic_baseline_favorite_border_24.xml" value="0.17533783783783785" />
         <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.2703125" />
         <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/drawable/ic_baseline_keyboard_arrow_right_24.xml" value="0.2703125" />
         <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/drawable/ic_baseline_location_on_24.xml" value="0.2703125" />
+        <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/drawable/ic_baseline_payment_24.xml" value="0.17533783783783785" />
         <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/drawable/ic_login.xml" value="0.2703125" />
+        <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/drawable/image_button_bg.xml" value="0.17533783783783785" />
         <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/drawable/sign_button.xml" value="1.2571428571428571" />
         <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/layout/activity_main.xml" value="0.24010416666666667" />
         <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/layout/fragment_favorite.xml" value="0.25416666666666665" />
@@ -30,6 +36,7 @@
         <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/layout/fregment_restaurant_list.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/layout/item_ingredient.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/layout/item_meal.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/layout/item_order.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/layout/item_restaurant.xml" value="0.264" />
         <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/layout/restaurant_detail.xml" value="0.25" />
         <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/menu/tabs.xml" value="0.25416666666666665" />

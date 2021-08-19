@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import com.example.foodDelivery.R
 import com.example.foodDelivery.databinding.FragmentProfileBinding
 import com.example.foodDelivery.ui.MainActivity
 import com.example.foodDelivery.utils.room.entity.LocalUser
@@ -38,14 +40,17 @@ class ProfileFragment:Fragment() {
 
     private fun initViews(user: LocalUser) {
         binding.apply {
-            name.text = user.name
-            editTextEmailAddress.text = user.email
-            editTextRole.text = "Role:${user.role}"
+            profileNameTextView.text = user.name
+            emailAddressTextView.text = user.email
+            roleTextView.text = "Role:${user.role}"
             logoutCardView.setOnClickListener{
                 viewModel.logout(user)
                 val intent = Intent(context, MainActivity::class.java)
                 startActivity(intent)
                 requireActivity().finish()
+            }
+            orderCardViews.setOnClickListener{
+                findNavController().navigate(R.id.action_homeFragment_to_orderListFragment)
             }
         }
 

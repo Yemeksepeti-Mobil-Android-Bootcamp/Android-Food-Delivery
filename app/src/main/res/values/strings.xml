@@ -18,11 +18,16 @@
     <string name="welcome_back">Welcome Back</string>
     <string name="profile">Profile</string>
     <string name="restaurant_list">Restaurant List</string>
-    <string name="basket">Basket</string>
+    <string name="favourite">Favourite</string>
     <string name="location">Restaurants For Your Location</string>
     <string name="restaurant_detail">Restaurant Detail</string>
     <string name="add_to_cart">Add To Cart</string>
     <string name="last_orders">Last orders</string>
     <string name="favorites">Favorites</string>
     <string name="logout">Logout</string>
+    <string name="meal_detail_image">meal detail image</string>
+    <string name="order">Order</string>
+    <string name="profile_image">Profile Image</string>
+    <string name="arrow_button">Arrow Button</string>
+    <string name="restaurant_image">Restaurant Image</string>
 </resources>

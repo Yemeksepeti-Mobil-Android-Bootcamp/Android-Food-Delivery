@@ -14,4 +14,7 @@ data class LocalRestaurant (
     @ColumnInfo(name = "name")var name: String,
     @ColumnInfo(name = "phone")var phone: String,
     @ColumnInfo(name = "website")var website: String,
+    @ColumnInfo(name = "minDeliveryFee")var minDeliveryFee: String,
+    @ColumnInfo(name = "paymentMethods")var paymentMethods: String,
+    @ColumnInfo(name = "imageUrl")var imageUrl: String,
 )

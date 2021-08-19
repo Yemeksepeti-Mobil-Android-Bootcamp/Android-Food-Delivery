@@ -7,8 +7,8 @@ import com.example.foodDelivery.utils.room.entity.LocalRestaurant
 import javax.inject.Inject
 
 class LocalDataSource@Inject constructor(
-    val mmkvManager: MmkvManager,
-    val dbDao: DbDao
+    private val mmkvManager: MmkvManager,
+    private val dbDao: DbDao
 ) {
 
     fun saveString(key:String,value:String){

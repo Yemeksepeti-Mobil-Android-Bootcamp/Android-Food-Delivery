@@ -1,12 +1,10 @@
 package com.example.foodDelivery.utils
 
-import android.provider.ContactsContract
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
 import com.example.foodDelivery.data.entity.common.Data
 import com.example.foodDelivery.data.entity.login.LoginResponse
 import com.example.foodDelivery.data.entity.register.RegisterResponse
-import com.example.foodDelivery.utils.room.entity.LocalUser
 import kotlinx.coroutines.Dispatchers
 
 

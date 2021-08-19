@@ -5,7 +5,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.foodDelivery.databinding.ItemRestaurantBinding
+import com.example.foodDelivery.utils.gone
 import com.example.foodDelivery.utils.room.entity.LocalRestaurant
+import com.example.foodDelivery.utils.show
 
 class FavoriteRecyclerViewAdapter: RecyclerView.Adapter<FavoriteRecyclerViewAdapter.FavoriteViewHolder>() {
     private lateinit var binding: ItemRestaurantBinding
@@ -15,15 +17,19 @@ class FavoriteRecyclerViewAdapter: RecyclerView.Adapter<FavoriteRecyclerViewAdap
     class FavoriteViewHolder(private val binding: ItemRestaurantBinding):RecyclerView.ViewHolder(binding.root){
         fun bind(item: LocalRestaurant, onClickListener: IFavoriteListener) {
             binding.apply {
-                name.text = item.name
-                address.text = item.address
-                time.text = item.deliveryTime
+                restaurantNameTextView.text = item.name
+                restaurantAddressTextView.text = item.address
+                deliveryTimeTextView.text = "${item.deliveryTime} min."
+                paymentTextView.text = item.paymentMethods
+                minDeliveryFeeTextView.text = "min ${item.minDeliveryFee}$"
                 Glide.with(imageView.context)
                     .load(item.image).into(imageView)
                 cardView.setOnClickListener{
                     onClickListener.onClick(item)
                 }
-                delete.setOnClickListener{
+                favButton.gone()
+                favDeleteButton.show()
+                favDeleteButton.setOnClickListener{
                     onClickListener.onClickFavButton(item)
                 }
             }

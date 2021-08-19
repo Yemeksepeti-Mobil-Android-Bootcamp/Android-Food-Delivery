@@ -11,17 +11,15 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.foodDelivery.data.entity.restaurant.Restaurant
 import com.example.foodDelivery.databinding.FregmentRestaurantListBinding
-import com.example.foodDelivery.ui.BaseFragment
 import com.example.foodDelivery.ui.home.HomeFragmentDirections
 import com.example.foodDelivery.utils.Resource
 import com.example.foodDelivery.utils.gone
-import com.example.foodDelivery.utils.room.entity.LocalRestaurant
 import com.example.foodDelivery.utils.show
 import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class RestaurantListFragment:BaseFragment()  {
+class RestaurantListFragment: Fragment(),IRestaurantListener  {
 
     private var _binding: FregmentRestaurantListBinding? = null
     private val binding get() = _binding!!
@@ -82,5 +80,16 @@ class RestaurantListFragment:BaseFragment()  {
     override fun onClick(restaurant: Restaurant) {
         val action = HomeFragmentDirections.actionHomeFragmentToRestaurantDetailFragment(restaurant.id)
         findNavController().navigate(action)
+    }
+
+    override fun onFavoriteClick(restaurant: Restaurant) {
+        viewModel.addFavorite(restaurant.toLocalRestaurant())
+        val dialog = AlertDialog.Builder(context)
+            .setTitle("Success")
+            .setMessage("The restaurant has been added to your favorites")
+            .setPositiveButton("ok") { dialog, button ->
+                dialog.dismiss()
+            }
+        dialog.show()
     }
 }

@@ -1,12 +1,9 @@
 package com.example.foodDelivery.ui.meal
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.foodDelivery.data.entity.restaurant.Restaurant
 import com.example.foodDelivery.databinding.ItemIngredientBinding
-import com.example.foodDelivery.ui.IOnClickListener
 
 class IngredientsRecyclerViewAdapter: RecyclerView.Adapter<IngredientsRecyclerViewAdapter.IngredientsViewHolder>() {
     private lateinit var binding: ItemIngredientBinding

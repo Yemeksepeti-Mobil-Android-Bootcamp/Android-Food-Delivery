@@ -1,7 +1,6 @@
 package com.example.foodDelivery.ui.register
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import com.example.foodDelivery.data.Repository
 import com.example.foodDelivery.data.entity.register.RegisterRequest
@@ -12,7 +11,6 @@ import javax.inject.Inject
 
 @HiltViewModel
 class RegisterViewModel @Inject constructor(
-    savedStateHandle: SavedStateHandle,
     private val repository: Repository
 ):ViewModel() {
     fun register(

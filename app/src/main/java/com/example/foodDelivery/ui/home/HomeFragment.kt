@@ -5,11 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import com.example.foodDelivery.databinding.FragmentHomeBinding
-import com.example.foodDelivery.ui.onboarding.OnboardingViewPagerAdapter
-import com.example.foodDelivery.ui.splash.SplashViewModel
-import com.example.foodDelivery.utils.anim.DepthPageTransformer
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

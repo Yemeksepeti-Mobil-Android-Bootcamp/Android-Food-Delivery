@@ -36,10 +36,10 @@ class NetworkModule {
     fun provideRetrofit(
         okHttpClient: OkHttpClient,
         gson: Gson,
-        endpoint:EndPoint
+        endpoint:String
     ):Retrofit{
         return Retrofit.Builder()
-            .baseUrl(endpoint.url)
+            .baseUrl(endpoint)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .client(okHttpClient)
             .build()
@@ -47,7 +47,7 @@ class NetworkModule {
 
     @Provides
     fun provideOkHttpClient (localDataSource: LocalDataSource):OkHttpClient{
-        var builder = OkHttpClient.Builder()
+        val builder = OkHttpClient.Builder()
         builder.interceptors().add(HttpLoggingInterceptor().apply {
             level = if (BuildConfig.DEBUG)HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
         })
@@ -67,10 +67,8 @@ class NetworkModule {
     }
 
     @Provides
-    fun provideEndPoint(): EndPoint {
-        return EndPoint("https://dist-learn.herokuapp.com/api/")
+    fun provideEndPoint(): String {
+        return "https://dist-learn.herokuapp.com/api/"
     }
-
-
 }
-data class EndPoint(val url: String)
+

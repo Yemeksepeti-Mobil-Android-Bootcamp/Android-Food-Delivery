@@ -93,9 +93,9 @@ class MealDetailFragment: Fragment() {
                         progressBar.gone()
                         Glide.with(imageView.context)
                             .load(meal.image).into(imageView)
-                        name.text = meal.name
-                        address.text = meal.description
-                        time.text = meal.price
+                        mealNameTextView.text = meal.name
+                        mealDescriptionTextView.text = meal.description
+                        mealPriceTextView.text = meal.price
                     }
 
                     setData(meal.ingredients)

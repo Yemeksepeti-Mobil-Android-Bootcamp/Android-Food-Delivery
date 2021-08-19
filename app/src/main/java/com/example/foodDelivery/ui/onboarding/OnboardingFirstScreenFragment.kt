@@ -16,7 +16,7 @@ class OnboardingFirstScreenFragment:Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentOnboardingFirstScreenBinding.inflate(layoutInflater,container,false)
         val view = binding.root
         initViews()
@@ -25,7 +25,7 @@ class OnboardingFirstScreenFragment:Fragment() {
 
     private fun initViews() {
         val viewPager = activity?.findViewById<ViewPager2>(R.id.viewPager)
-        binding.nextButton.setOnClickListener(){
+        binding.nextButton.setOnClickListener{
             viewPager?.currentItem=1
         }
     }

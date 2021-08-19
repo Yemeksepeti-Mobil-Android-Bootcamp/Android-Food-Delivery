@@ -108,6 +108,13 @@
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
             app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_homeFragment_to_orderListFragment"
+            app:destination="@id/orderListFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
     </fragment>
     <fragment
         android:id="@+id/restaurantDetailFragment"
@@ -137,4 +144,9 @@
             android:name="restaurantId"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/orderListFragment"
+        android:name="com.example.foodDelivery.ui.orders.OrderListFragment"
+        android:label="fragment_order_list"
+        tools:layout="@layout/fragment_order_list" />
 </navigation>

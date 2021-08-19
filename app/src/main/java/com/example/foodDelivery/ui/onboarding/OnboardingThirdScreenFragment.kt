@@ -20,7 +20,7 @@ class OnboardingThirdScreenFragment:Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentOnboardingThirdScreenBinding.inflate(layoutInflater,container,false)
         val view = binding.root
         initViews()
@@ -28,7 +28,7 @@ class OnboardingThirdScreenFragment:Fragment() {
     }
 
     private fun initViews() {
-        binding.homeButton.setOnClickListener(){
+        binding.homeButton.setOnClickListener{
             viewModel.saveOnboardingState("onboarding","true")
             findNavController().navigate(R.id.action_onboardingMainFragment_to_signUpFragment)
         }

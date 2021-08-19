@@ -1,12 +1,10 @@
 package com.example.foodDelivery.ui.restaurantDetail
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.foodDelivery.data.entity.meal.Meal
-import com.example.foodDelivery.data.entity.restaurant.Restaurant
 import com.example.foodDelivery.databinding.ItemMealBinding
 import com.example.foodDelivery.ui.IOnClickListener
 

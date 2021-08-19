@@ -26,6 +26,7 @@ class OrderRecyclerViewAdapter: RecyclerView.Adapter<OrderRecyclerViewAdapter.Or
 
     fun setOrderList(orderList: List<Order>) {
         this.orderList = orderList
+        println(orderList.toString())
         notifyDataSetChanged()
     }
 

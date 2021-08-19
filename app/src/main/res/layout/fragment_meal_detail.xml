@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg"
-    android:padding="16dp"
+    android:padding="@dimen/_16sdp"
     tools:context=".ui.meal.MealDetailFragment">
 
     <androidx.appcompat.widget.AppCompatImageButton
@@ -19,6 +19,20 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:contentDescription="Back Button" />
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_6sdp"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/meal_detail"
+        android:textColor="@color/primary"
+        android:textSize="@dimen/_14ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/backButton" />
+
+
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -28,68 +42,119 @@
         android:backgroundTint="@color/bg"
         android:elevation="10dp"
         app:cardCornerRadius="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/backButton">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/profilerCardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_6sdp"
             android:orientation="vertical"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView"
             tools:ignore="UseCompoundDrawables">
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_130sdp"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="@dimen/_90sdp"
+                android:contentDescription="@string/location"
+                android:scaleType="centerCrop"
                 android:src="@drawable/ic_login"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:contentDescription="@string/meal_detail_image" />
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:contentDescription="@string/location"
+                android:visibility="invisible"
+                android:src="@drawable/ic_baseline_description_24"
+                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/mealNameTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_6sdp"
                 android:fontFamily="@font/montserrat"
                 android:textColor="@color/primary"
-                android:textSize="@dimen/_12ssp"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
+                android:textSize="@dimen/_13ssp"
+                android:layout_marginTop="@dimen/_1sdp"
+                android:layout_marginStart="@dimen/_6sdp"
+                app:layout_constraintStart_toEndOf="@+id/imageView5"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Meal Name" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:contentDescription="@string/location"
+                android:src="@drawable/ic_baseline_description_24"
+                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintTop_toBottomOf="@+id/mealNameTextView" />
 
             <TextView
                 android:id="@+id/mealDescriptionTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_6sdp"
                 android:fontFamily="@font/montserrat"
                 android:textColor="@color/primary"
-                android:textSize="@dimen/_10ssp"
+                android:textSize="@dimen/_13ssp"
+                android:layout_marginStart="@dimen/_6sdp"
+                android:layout_marginTop="@dimen/_1sdp"
+                app:layout_constraintStart_toEndOf="@+id/imageView2"
+                app:layout_constraintTop_toTopOf="@+id/imageView2"
+                tools:text="Meal Description" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:contentDescription="@string/location"
+                android:src="@drawable/ic_baseline_attach_money_24"
                 app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toBottomOf="@+id/name"
-                tools:text="Description" />
+                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
             <TextView
                 android:id="@+id/mealPriceTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_6sdp"
+                android:layout_marginTop="@dimen/_1sdp"
                 android:fontFamily="@font/montserrat"
                 android:textColor="@color/primary"
-                android:textSize="@dimen/_11sdp"
-                tools:text="Price" />
+                android:textSize="@dimen/_13ssp"
+                app:layout_constraintStart_toEndOf="@+id/imageView3"
+                app:layout_constraintTop_toTopOf="@+id/imageView3"
+                tools:text="Meal Description" />
 
 
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
 
+    <TextView
+        android:id="@+id/mealIngredientTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/meal_ingredients"
+        android:textColor="@color/primary"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:textSize="@dimen/_14ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
@@ -111,16 +176,18 @@
         app:layout_constraintBottom_toTopOf="@+id/orderButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+        app:layout_constraintTop_toBottomOf="@+id/mealIngredientTextView" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/orderButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
+        android:backgroundTint="@color/primary"
         android:background="@drawable/sign_button"
         android:paddingVertical="16dp"
         android:text="@string/order"
+        android:textColor="@color/white"
         android:textAllCaps="false"
         android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"

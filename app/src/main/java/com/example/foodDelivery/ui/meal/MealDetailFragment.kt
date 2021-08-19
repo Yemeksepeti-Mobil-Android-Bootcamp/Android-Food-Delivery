@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.foodDelivery.databinding.FragmentMealDetailBinding
@@ -47,6 +48,9 @@ class MealDetailFragment: Fragment() {
         binding.apply {
             recyclerView.layoutManager = LinearLayoutManager(context)
             recyclerView.adapter = adapter
+            backButton.setOnClickListener{
+                findNavController().popBackStack()
+            }
             orderButton.setOnClickListener{
                 viewModel.postOrder(mealId).observe(viewLifecycleOwner,{
                     when (it.status) {
@@ -83,18 +87,28 @@ class MealDetailFragment: Fragment() {
         viewModel.getMeal().observe(viewLifecycleOwner, {
             when (it.status) {
                 Resource.Status.LOADING -> {
-                    binding.progressBar.show()
+
+                    binding.apply{
+                        mealIngredientTextView.gone()
+                        cardView.gone()
+                        orderButton.gone()
+                        progressBar.show()
+                    }
                 }
                 Resource.Status.SUCCESS -> {
                     val meal = it.data!!.data
                     mealId = meal.id
                     viewModel.meal = meal
                     binding.apply {
+                        mealIngredientTextView.show()
+                        cardView.show()
+                        orderButton.show()
                         progressBar.gone()
                         Glide.with(imageView.context)
                             .load(meal.image).into(imageView)
                         mealNameTextView.text = meal.name
-                        mealDescriptionTextView.text = meal.description
+                        val description = "Meal Description"
+                        mealDescriptionTextView.text = description
                         mealPriceTextView.text = meal.price
                     }
 

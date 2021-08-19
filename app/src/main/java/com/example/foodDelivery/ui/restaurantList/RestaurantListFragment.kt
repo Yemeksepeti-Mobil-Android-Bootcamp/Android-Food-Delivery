@@ -40,8 +40,6 @@ class RestaurantListFragment: Fragment(),IRestaurantListener  {
         getRestaurants()
     }
 
-
-
     private fun getRestaurants() {
         viewModel.getRestaurants().observe(viewLifecycleOwner, { response ->
             when (response.status) {

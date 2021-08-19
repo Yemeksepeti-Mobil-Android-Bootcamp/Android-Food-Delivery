@@ -30,4 +30,7 @@
     <string name="profile_image">Profile Image</string>
     <string name="arrow_button">Arrow Button</string>
     <string name="restaurant_image">Restaurant Image</string>
+    <string name="menu">Restaurant Menu</string>
+    <string name="meal_detail">Meal Detail</string>
+    <string name="meal_ingredients">Meal Ingredients</string>
 </resources>

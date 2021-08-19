@@ -5,16 +5,16 @@
     android:id="@+id/ingredientLayout"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp"
-    app:cardCornerRadius="5dp">
+    android:layout_margin="@dimen/_2sdp"
+    app:cardCornerRadius="@dimen/_3sdp">
 
     <TextView
         android:id="@+id/ingredientNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat"
-        android:textSize="16sp"
+        android:textSize="@dimen/_14ssp"
         tools:text="Ingredients"
-        android:layout_margin="5dp"/>
+        android:layout_margin="@dimen/_3sdp"/>
 
 </androidx.cardview.widget.CardView>

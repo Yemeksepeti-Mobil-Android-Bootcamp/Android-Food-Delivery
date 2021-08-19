@@ -4,6 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import com.example.foodDelivery.data.Repository
+import com.example.foodDelivery.data.entity.order.OrderRequest
+import com.example.foodDelivery.data.entity.order.OrderResponse
 import com.example.foodDelivery.data.entity.restaurant.RestaurantResponse
 import com.example.foodDelivery.utils.Resource
 import com.example.foodDelivery.utils.room.entity.LocalRestaurant
@@ -24,4 +26,6 @@ class RestaurantDetailViewModel @Inject constructor(
     fun addFavorite(localRestaurant: LocalRestaurant){
         repository.addFavorite(localRestaurant)
     }
+
+    fun postOrder(orderRequest: OrderRequest):LiveData<Resource<OrderResponse>> = repository.postOrder(orderRequest)
 }

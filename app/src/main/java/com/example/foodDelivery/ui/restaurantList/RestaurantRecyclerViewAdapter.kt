@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.foodDelivery.data.entity.restaurant.Restaurant
 import com.example.foodDelivery.databinding.ItemRestaurantBinding
-import com.example.foodDelivery.ui.IOnClickListener
 import com.example.foodDelivery.utils.gone
 
 class RestaurantRecyclerViewAdapter:RecyclerView.Adapter<RestaurantRecyclerViewAdapter.RestaurantViewHolder>() {
@@ -37,7 +36,6 @@ class RestaurantRecyclerViewAdapter:RecyclerView.Adapter<RestaurantRecyclerViewA
     fun setRestaurantList(restaurant: List<Restaurant>, onClickListener: IRestaurantListener) {
         this.onClickListener =onClickListener
         this.restaurant = restaurant
-        println(restaurant.size)
         notifyDataSetChanged()
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RestaurantViewHolder {

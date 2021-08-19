@@ -6,29 +6,34 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.foodDelivery.data.entity.meal.Meal
 import com.example.foodDelivery.databinding.ItemMealBinding
-import com.example.foodDelivery.ui.IOnClickListener
 
 
 class MealRecyclerViewAdapter:RecyclerView.Adapter<MealRecyclerViewAdapter.MealViewHolder>() {
     private lateinit var binding: ItemMealBinding
-    private lateinit var  onClickListener :IOnClickListener
+    private lateinit var  onClickListener :IMealListener
     private  var mealList:List<Meal> = mutableListOf()
 
     class MealViewHolder(private val binding: ItemMealBinding):RecyclerView.ViewHolder(binding.root){
-        fun bind(item: Meal, onClickListener: IOnClickListener) {
+        fun bind(item: Meal, onClickListener: IMealListener) {
             binding.apply {
-                mealTitleTextView.text = item.name
-                mealDescriptionTextView.text = item.description
+                mealNameTextView.text = item.name
+                val description = "Meal Description"
+                mealDescriptionTextView.text = description
                 mealPriceTextView.text = "${item.price}$"
-                Glide.with(mealImageView.context)
-                    .load(item.image).into(mealImageView)
+                Glide.with(imageView.context)
+                    .load(item.image).into(imageView)
+                mealCardView.setOnClickListener{
+                    onClickListener.onClickMeal(item)
+                }
+                orderButton.setOnClickListener{
+                    onClickListener.onClickOrder(item)
+                }
             }
-            binding.mealCardView.setOnClickListener{
-                onClickListener.onClickMeal(item)
-            }
+
+
         }
     }
-    fun setMealList(mealList: List<Meal>, onClickListener: IOnClickListener) {
+    fun setMealList(mealList: List<Meal>, onClickListener: IMealListener) {
         this.onClickListener =onClickListener
         this.mealList = mealList
         println(mealList.size)

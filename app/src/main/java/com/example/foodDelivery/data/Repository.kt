@@ -62,16 +62,7 @@ class Repository @Inject constructor(
             remoteDataSource.getMealById(id)
         }
 
-    fun getOrder() = performNetworkOperation {
-            remoteDataSource.getOrders()
-        }
-
-    fun postOrder(orderAddRequest: OrderRequest) = performNetworkOperation {
-            remoteDataSource.postOrder(orderAddRequest)
-        }
-
-    fun getUser() =
-        performNetworkOperation {
+    fun getUser() = performNetworkOperation {
             remoteDataSource.getUser()
         }
 
@@ -97,6 +88,14 @@ class Repository @Inject constructor(
 
     fun removeFavorite(localRestaurant: LocalRestaurant){
         localDataSource.removeFavorite(localRestaurant)
+    }
+
+    fun getOrder() = performNetworkOperation {
+        remoteDataSource.getOrders()
+    }
+
+    fun postOrder(orderAddRequest: OrderRequest) = performNetworkOperation {
+        remoteDataSource.postOrder(orderAddRequest)
     }
 
 }

@@ -91,7 +91,7 @@ class RestaurantDetailFragment: BaseFragment() {
     }
 
     override fun onClickMeal(meal: Meal) {
-        val action = RestaurantDetailFragmentDirections.actionRestaurantDetailFragmentToMealDetailFragment(meal.id)
+        val action = RestaurantDetailFragmentDirections.actionRestaurantDetailFragmentToMealDetailFragment(meal.id,restaurant.restaurantId)
         findNavController().navigate(action)
     }
 

@@ -21,6 +21,7 @@ class MealDetailFragment: Fragment() {
     private val viewModel: MealDetailViewModel by viewModels()
     private var _binding: FragmentMealDetailBinding? = null
     private val binding get() = _binding!!
+    private lateinit var mealId:String
     private var adapter: IngredientsRecyclerViewAdapter = IngredientsRecyclerViewAdapter()
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -43,8 +44,39 @@ class MealDetailFragment: Fragment() {
 
 
     private fun initViews() {
-        binding.recyclerView.layoutManager = LinearLayoutManager(context)
-        binding.recyclerView.adapter = adapter
+        binding.apply {
+            recyclerView.layoutManager = LinearLayoutManager(context)
+            recyclerView.adapter = adapter
+            orderButton.setOnClickListener{
+                viewModel.postOrder(mealId).observe(viewLifecycleOwner,{
+                    when (it.status) {
+                        Resource.Status.LOADING -> {
+                            binding.progressBar.show()
+                        }
+                        Resource.Status.SUCCESS -> {
+                            binding.progressBar.gone()
+                            val dialog = AlertDialog.Builder(context)
+                                .setTitle("Success")
+                                .setMessage("Your order has been created")
+                                .setPositiveButton("ok") { dialog, button ->
+                                    dialog.dismiss()
+                                }
+                            dialog.show()
+                        }
+                        Resource.Status.ERROR -> {
+                            binding.progressBar.gone()
+                            val dialog = AlertDialog.Builder(context)
+                                .setTitle("Error")
+                                .setMessage("${it.message}")
+                                .setPositiveButton("ok") { dialog, button ->
+                                    dialog.dismiss()
+                                }
+                            dialog.show()
+                        }
+                    }
+                })
+            }
+        }
     }
 
     private fun getMeal(){
@@ -55,6 +87,7 @@ class MealDetailFragment: Fragment() {
                 }
                 Resource.Status.SUCCESS -> {
                     val meal = it.data!!.data
+                    mealId = meal.id
                     viewModel.meal = meal
                     binding.apply {
                         progressBar.gone()

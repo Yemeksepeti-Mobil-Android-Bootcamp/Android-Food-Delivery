@@ -3,6 +3,9 @@ package com.example.foodDelivery.ui.home
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.example.foodDelivery.ui.favorite.FavoriteFragment
+import com.example.foodDelivery.ui.favorite.FavoriteFragment_GeneratedInjector
+import com.example.foodDelivery.ui.favorite.FavoriteViewModel_HiltModules_KeyModule_ProvideFactory
 import com.example.foodDelivery.ui.onboarding.OnboardingThirdScreenFragment
 import com.example.foodDelivery.ui.profile.ProfileFragment
 import com.example.foodDelivery.ui.restaurantList.RestaurantListFragment
@@ -15,7 +18,7 @@ class HomeViewPagerAdapter(activity: FragmentActivity): FragmentStateAdapter(act
 
     override fun createFragment(position: Int): Fragment {
         return when(position){
-            0 -> RestaurantListFragment()
+            0 -> FavoriteFragment()
             1 -> RestaurantListFragment()
             2 -> ProfileFragment()
             else -> RestaurantListFragment()

@@ -2,6 +2,7 @@ package com.example.foodDelivery.utils.room
 
 import androidx.room.*
 import androidx.room.Dao
+import com.example.foodDelivery.utils.room.entity.LocalRestaurant
 import com.example.foodDelivery.utils.room.entity.LocalUser
 
 @Dao
@@ -16,5 +17,14 @@ interface DbDao {
     @Delete
     fun removeUser(user: LocalUser)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun addFavorite(restaurant: LocalRestaurant)
+
+    @Query("SELECT * FROM LocalRestaurant")
+    fun listFavorite(): List<LocalRestaurant>
+
+
+    @Delete
+    fun removeFavorite(restaurant: LocalRestaurant)
 
 }

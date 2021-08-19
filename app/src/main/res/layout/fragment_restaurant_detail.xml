@@ -82,6 +82,12 @@
                 android:textSize="@dimen/_11sdp"
                 tools:text="Time" />
 
+            <Button
+                android:id="@+id/favButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="fav"/>
+
 
         </LinearLayout>
 

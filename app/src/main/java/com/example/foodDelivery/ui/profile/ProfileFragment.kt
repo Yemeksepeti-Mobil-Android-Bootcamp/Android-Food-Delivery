@@ -7,8 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
-import com.example.foodDelivery.R
 import com.example.foodDelivery.databinding.FragmentProfileBinding
 import com.example.foodDelivery.ui.MainActivity
 import com.example.foodDelivery.utils.room.entity.LocalUser
@@ -19,6 +17,7 @@ class ProfileFragment:Fragment() {
     private val viewModel:ProfileViewModel by viewModels()
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

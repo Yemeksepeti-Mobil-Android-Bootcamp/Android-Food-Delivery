@@ -1,6 +1,7 @@
 package com.example.foodDelivery.data.remote
 
 import com.example.foodDelivery.data.entity.login.LoginRequest
+import com.example.foodDelivery.data.entity.order.OrderRequest
 import com.example.foodDelivery.data.entity.register.RegisterRequest
 import com.example.foodDelivery.utils.BaseDataSource
 import javax.inject.Inject
@@ -21,4 +22,10 @@ class RemoteDataSource @Inject constructor(
     suspend fun getMealById(id: String) = getResult { apiService.getMealById(id) }
 
     suspend fun  getUser() = getResult { apiService.getUser() }
+
+    suspend fun getOrders() = getResult { apiService.getOrders() }
+
+    suspend fun postOrder(orderRequest: OrderRequest) = getResult {
+        apiService.postOrder(orderRequest)
+    }
 }

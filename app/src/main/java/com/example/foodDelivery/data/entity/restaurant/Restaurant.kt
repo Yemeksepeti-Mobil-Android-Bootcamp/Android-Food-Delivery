@@ -1,6 +1,8 @@
 package com.example.foodDelivery.data.entity.restaurant
 
 import com.example.foodDelivery.data.entity.meal.Meal
+import com.example.foodDelivery.utils.room.entity.LocalRestaurant
+import com.example.foodDelivery.utils.room.entity.LocalUser
 import com.google.gson.annotations.SerializedName
 
 data class Restaurant(
@@ -30,4 +32,8 @@ data class Restaurant(
     val website: String,
     @SerializedName("cuisine")
     val cuisine: String,
-)
+){
+    fun toLocalRestaurant(): LocalRestaurant {
+        return LocalRestaurant(restaurantId =id,deliveryInfo = deliveryInfo,deliveryTime = deliveryTime,image = image,address = address,name = name,phone = phone,website = website)
+    }
+}

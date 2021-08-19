@@ -9,14 +9,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.foodDelivery.R
-import com.example.foodDelivery.data.entity.meal.Meal
 import com.example.foodDelivery.data.entity.restaurant.Restaurant
 import com.example.foodDelivery.databinding.FregmentRestaurantListBinding
 import com.example.foodDelivery.ui.BaseFragment
 import com.example.foodDelivery.ui.home.HomeFragmentDirections
 import com.example.foodDelivery.utils.Resource
 import com.example.foodDelivery.utils.gone
+import com.example.foodDelivery.utils.room.entity.LocalRestaurant
 import com.example.foodDelivery.utils.show
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -84,9 +83,4 @@ class RestaurantListFragment:BaseFragment()  {
         val action = HomeFragmentDirections.actionHomeFragmentToRestaurantDetailFragment(restaurant.id)
         findNavController().navigate(action)
     }
-
-    override fun onClickMeal(restaurant: Meal) {
-        TODO("Not yet implemented")
-    }
-
 }

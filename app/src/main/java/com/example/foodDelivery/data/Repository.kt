@@ -1,11 +1,13 @@
 package com.example.foodDelivery.data
 
 import com.example.foodDelivery.data.entity.login.LoginRequest
+import com.example.foodDelivery.data.entity.order.OrderRequest
 import com.example.foodDelivery.data.entity.register.RegisterRequest
 import com.example.foodDelivery.data.local.LocalDataSource
 import com.example.foodDelivery.data.remote.RemoteDataSource
 import com.example.foodDelivery.utils.performAuthNetworkOperation
 import com.example.foodDelivery.utils.performNetworkOperation
+import com.example.foodDelivery.utils.room.entity.LocalRestaurant
 import com.example.foodDelivery.utils.room.entity.LocalUser
 import javax.inject.Inject
 
@@ -48,25 +50,30 @@ class Repository @Inject constructor(
         }
     )
 
-    fun getRestaurants() =
-        performNetworkOperation {
+    fun getRestaurants() = performNetworkOperation {
             remoteDataSource.getRestaurants()
         }
 
-    fun getRestaurantById(id: String) =
-        performNetworkOperation {
+    fun getRestaurantById(id: String) = performNetworkOperation {
             remoteDataSource.getRestaurantById(id)
         }
 
-    fun getMealById(id: String) =
-        performNetworkOperation {
+    fun getMealById(id: String) = performNetworkOperation {
             remoteDataSource.getMealById(id)
         }
+
+    fun getOrder() = performNetworkOperation {
+            remoteDataSource.getOrders()
+        }
+
+    fun postOrder(orderAddRequest: OrderRequest) = performNetworkOperation {
+            remoteDataSource.postOrder(orderAddRequest)
+        }
+
     fun getUser() =
         performNetworkOperation {
             remoteDataSource.getUser()
         }
-
 
     fun getUserDb(userId: Int = 0): LocalUser = localDataSource.getUser(userId)
 
@@ -80,7 +87,16 @@ class Repository @Inject constructor(
         localDataSource.removeUser(user)
     }
 
-//    fun removeToken() {
-//        localDataSource.saveString("token", "")
-//    }
+    fun addFavorite(localRestaurant: LocalRestaurant){
+        localDataSource.addFavorite(localRestaurant)
+    }
+
+    fun listFavorite():List<LocalRestaurant>{
+       return localDataSource.listFavorite()
+    }
+
+    fun removeFavorite(localRestaurant: LocalRestaurant){
+        localDataSource.removeFavorite(localRestaurant)
+    }
+
 }

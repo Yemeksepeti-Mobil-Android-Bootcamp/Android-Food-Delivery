@@ -17,6 +17,7 @@ import com.example.foodDelivery.ui.BaseFragment
 import com.example.foodDelivery.ui.home.HomeFragmentDirections
 import com.example.foodDelivery.utils.Resource
 import com.example.foodDelivery.utils.gone
+import com.example.foodDelivery.utils.room.entity.LocalRestaurant
 import com.example.foodDelivery.utils.show
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -27,6 +28,7 @@ class RestaurantDetailFragment: BaseFragment() {
     private var _binding: FragmentRestaurantDetailBinding? = null
     private val binding get() = _binding!!
     private var adapter: MealRecyclerViewAdapter = MealRecyclerViewAdapter()
+    private lateinit var restaurant:LocalRestaurant
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,6 +39,16 @@ class RestaurantDetailFragment: BaseFragment() {
         initViews()
         getRestaurant()
         return binding.root
+    }
+
+    private fun initViews() {
+        binding.apply {
+            recyclerView.layoutManager = LinearLayoutManager(context)
+            recyclerView.adapter = adapter
+            favButton.setOnClickListener{
+                viewModel.addFavorite(restaurant)
+            }
+        }
     }
 
 
@@ -61,6 +73,7 @@ class RestaurantDetailFragment: BaseFragment() {
                     binding.progressBar.gone()
                     response.data?.let {
                         setData(it.data)
+                        restaurant = it.data.toLocalRestaurant()
                     }
                 }
                 Resource.Status.ERROR -> {
@@ -76,18 +89,14 @@ class RestaurantDetailFragment: BaseFragment() {
             }
         })
     }
-    private fun initViews() {
-        binding.recyclerView.layoutManager = LinearLayoutManager(context)
-        binding.recyclerView.adapter = adapter
-    }
-
-    override fun onClick(restaurant: Restaurant) {
-
-    }
 
     override fun onClickMeal(meal: Meal) {
         val action = RestaurantDetailFragmentDirections.actionRestaurantDetailFragmentToMealDetailFragment(meal.id)
         findNavController().navigate(action)
+    }
+
+    override fun onClick(restaurant: Restaurant) {
+
     }
 
 }

@@ -1,4 +1,17 @@
 package com.example.foodDelivery.utils.room.entity
 
-class LocalRestaurant {
-}
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "LocalRestaurant")
+data class LocalRestaurant (
+    @PrimaryKey var restaurantId:String,
+    @ColumnInfo(name = "deliveryInfo")var deliveryInfo: String,
+    @ColumnInfo(name = "deliveryTime")var deliveryTime: String,
+    @ColumnInfo(name = "image")var image: String,
+    @ColumnInfo(name = "address")var address: String,
+    @ColumnInfo(name = "name")var name: String,
+    @ColumnInfo(name = "phone")var phone: String,
+    @ColumnInfo(name = "website")var website: String,
+)

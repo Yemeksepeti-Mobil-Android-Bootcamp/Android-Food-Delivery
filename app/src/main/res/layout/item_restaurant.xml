@@ -63,6 +63,12 @@
                 android:layout_marginStart="@dimen/_6sdp"
                 />
 
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="button"
+                android:id="@+id/delete"/>
+
 
         </LinearLayout>
 

@@ -3,6 +3,7 @@ package com.example.foodDelivery.data.local
 import android.util.Log
 import com.example.foodDelivery.utils.room.entity.LocalUser
 import com.example.foodDelivery.utils.room.DbDao
+import com.example.foodDelivery.utils.room.entity.LocalRestaurant
 import javax.inject.Inject
 
 class LocalDataSource@Inject constructor(
@@ -29,5 +30,17 @@ class LocalDataSource@Inject constructor(
 
     fun removeUser(localUser: LocalUser) {
         dbDao.removeUser(localUser)
+    }
+
+    fun addFavorite(localeRestaurant: LocalRestaurant){
+        dbDao.addFavorite(localeRestaurant)
+    }
+
+    fun listFavorite():List<LocalRestaurant>{
+        return  dbDao.listFavorite()
+    }
+
+    fun removeFavorite(localeRestaurant: LocalRestaurant){
+        dbDao.removeFavorite(localeRestaurant)
     }
 }

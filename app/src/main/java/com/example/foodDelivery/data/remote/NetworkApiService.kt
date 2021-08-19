@@ -3,6 +3,9 @@ package com.example.foodDelivery.data.remote
 import com.example.foodDelivery.data.entity.login.LoginRequest
 import com.example.foodDelivery.data.entity.login.LoginResponse
 import com.example.foodDelivery.data.entity.meal.MealResponse
+import com.example.foodDelivery.data.entity.order.OrderGetResponse
+import com.example.foodDelivery.data.entity.order.OrderRequest
+import com.example.foodDelivery.data.entity.order.OrderResponse
 import com.example.foodDelivery.data.entity.register.RegisterRequest
 import com.example.foodDelivery.data.entity.register.RegisterResponse
 import com.example.foodDelivery.data.entity.restaurant.RestaurantListResponse
@@ -33,5 +36,11 @@ interface NetworkApiService {
 
     @GET("auth/profile")
     suspend fun getUser() : Response<UserResponse>
+
+    @POST("a/order")
+    suspend fun postOrder(@Body request: OrderRequest): Response<OrderResponse>
+
+    @GET("a/order")
+    suspend fun getOrders(): Response<OrderGetResponse>
 
 }

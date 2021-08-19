@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.example.foodDelivery.data.Repository
 import com.example.foodDelivery.data.entity.restaurant.RestaurantResponse
 import com.example.foodDelivery.utils.Resource
+import com.example.foodDelivery.utils.room.entity.LocalRestaurant
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -19,4 +20,8 @@ class RestaurantDetailViewModel @Inject constructor(
         savedStateHandle.get<String>("restaurantId")!!.let {
             repository.getRestaurantById(it)
         }
+
+    fun addFavorite(localRestaurant: LocalRestaurant){
+        repository.addFavorite(localRestaurant)
+    }
 }

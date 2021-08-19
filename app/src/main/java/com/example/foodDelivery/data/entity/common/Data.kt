@@ -1,6 +1,6 @@
 package com.example.foodDelivery.data.entity.common
 
-import com.example.foodDelivery.utils.room.LocalUser
+import com.example.foodDelivery.utils.room.entity.LocalUser
 import com.google.gson.annotations.SerializedName
 
 data class Data(

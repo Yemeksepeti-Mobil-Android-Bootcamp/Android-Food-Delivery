@@ -22,4 +22,7 @@
     <string name="location">Restaurants For Your Location</string>
     <string name="restaurant_detail">Restaurant Detail</string>
     <string name="add_to_cart">Add To Cart</string>
+    <string name="last_orders">Last orders</string>
+    <string name="favorites">Favorites</string>
+    <string name="logout">Logout</string>
 </resources>

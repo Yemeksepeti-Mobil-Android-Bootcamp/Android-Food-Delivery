@@ -1,8 +1,7 @@
 package com.example.foodDelivery.di
 
-import android.hardware.usb.UsbEndpoint
-import android.os.Build
 import com.example.foodDelivery.BuildConfig
+import com.example.foodDelivery.data.local.LocalDataSource
 import com.example.foodDelivery.data.remote.NetworkApiService
 import com.example.foodDelivery.data.remote.RemoteDataSource
 import com.google.gson.Gson
@@ -47,12 +46,18 @@ class NetworkModule {
     }
 
     @Provides
-    fun provideOkHttpClient():OkHttpClient{
+    fun provideOkHttpClient (localDataSource: LocalDataSource):OkHttpClient{
         var builder = OkHttpClient.Builder()
         builder.interceptors().add(HttpLoggingInterceptor().apply {
             level = if (BuildConfig.DEBUG)HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
         })
-
+        val token = localDataSource.getString("token")
+        if(!token.isNullOrEmpty()){
+            builder.addInterceptor{
+                val request = it.request().newBuilder().addHeader("Authorization", token).build()
+                it.proceed(request)
+            }
+        }
         return  builder.build()
     }
 

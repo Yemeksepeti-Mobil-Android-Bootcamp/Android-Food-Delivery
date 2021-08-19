@@ -1,7 +1,7 @@
 package com.example.foodDelivery.data.local
 
 import android.util.Log
-import com.example.foodDelivery.utils.room.LocalUser
+import com.example.foodDelivery.utils.room.entity.LocalUser
 import com.example.foodDelivery.utils.room.DbDao
 import javax.inject.Inject
 

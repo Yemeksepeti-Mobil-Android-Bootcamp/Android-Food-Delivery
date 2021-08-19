@@ -6,6 +6,7 @@
         <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/drawable/bottom_navigation_border.xml" value="0.2703125" />
         <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/drawable/ic_baseline_access_time_24.xml" value="0.2703125" />
         <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.2703125" />
+        <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/drawable/ic_baseline_keyboard_arrow_right_24.xml" value="0.2703125" />
         <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/drawable/ic_baseline_location_on_24.xml" value="0.2703125" />
         <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/drawable/ic_login.xml" value="0.2703125" />
         <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/drawable/sign_button.xml" value="1.2571428571428571" />
@@ -18,6 +19,7 @@
         <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/layout/fragment_onboarding_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/layout/fragment_onboarding_second_screen.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/layout/fragment_onboarding_third_screen.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/layout/fragment_profile.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/layout/fragment_register.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/layout/fragment_restaurant_detail.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/OKTAY/Documents/BootcampKotlin/odevler/OrderFood/app/src/main/res/layout/fragment_sign_in.xml" value="0.25416666666666665" />

@@ -7,6 +7,7 @@ import com.example.foodDelivery.data.entity.register.RegisterRequest
 import com.example.foodDelivery.data.entity.register.RegisterResponse
 import com.example.foodDelivery.data.entity.restaurant.RestaurantListResponse
 import com.example.foodDelivery.data.entity.restaurant.RestaurantResponse
+import com.example.foodDelivery.data.entity.user.UserResponse
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -29,5 +30,8 @@ interface NetworkApiService {
 
     @GET("a/meal/{id}")
     suspend fun getMealById(@Path("id") id: String): Response<MealResponse>
+
+    @GET("auth/profile")
+    suspend fun getUser() : Response<UserResponse>
 
 }

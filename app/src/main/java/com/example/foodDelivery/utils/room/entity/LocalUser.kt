@@ -1,4 +1,4 @@
-package com.example.foodDelivery.utils.room
+package com.example.foodDelivery.utils.room.entity
 
 import android.provider.ContactsContract
 import androidx.room.ColumnInfo

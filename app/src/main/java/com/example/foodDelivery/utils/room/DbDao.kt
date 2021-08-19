@@ -2,6 +2,7 @@ package com.example.foodDelivery.utils.room
 
 import androidx.room.*
 import androidx.room.Dao
+import com.example.foodDelivery.utils.room.entity.LocalUser
 
 @Dao
 interface DbDao {
@@ -14,4 +15,6 @@ interface DbDao {
 
     @Delete
     fun removeUser(user: LocalUser)
+
+
 }

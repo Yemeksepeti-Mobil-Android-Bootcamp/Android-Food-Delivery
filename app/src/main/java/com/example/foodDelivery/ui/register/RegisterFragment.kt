@@ -12,6 +12,8 @@ import com.example.foodDelivery.databinding.FragmentRegisterBinding
 import com.example.foodDelivery.utils.Resource
 import com.example.foodDelivery.utils.gone
 import com.example.foodDelivery.utils.show
+import com.wajahatkarim3.easyvalidation.core.view_ktx.nonEmpty
+import com.wajahatkarim3.easyvalidation.core.view_ktx.validator
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -37,9 +39,14 @@ class RegisterFragment : Fragment() {
     }
 
     private fun register() {
-        val email = binding.emailAddressEditText.text.toString()
-        val name = binding.personNameEditText.text.toString()
-        val password = binding.passwordEditText.text.toString()
+        val emailTextView = binding.emailAddressEditText
+        val nameTextView = binding.personNameEditText
+        val passwordTextView = binding.passwordEditText
+
+        if(emailTextView.nonEmpty() && passwordTextView.nonEmpty()&& nameTextView.nonEmpty()){
+            val email = emailTextView.text.toString()
+            var password = passwordTextView.text.toString()
+            val name = nameTextView.text.toString()
         viewModel.register(email, name, password).observe(viewLifecycleOwner,{
             when(it.status){
                 Resource.Status.LOADING -> {
@@ -54,6 +61,23 @@ class RegisterFragment : Fragment() {
                 }
             }
         })
+        }else{
+            emailTextView.validator()
+                .nonEmpty()
+                .addErrorCallback {
+                    emailTextView.error = it
+                }.check()
+            passwordTextView.validator()
+                .nonEmpty()
+                .addErrorCallback {
+                    passwordTextView.error = it
+                }.check()
+            nameTextView.validator()
+                .nonEmpty()
+                .addErrorCallback {
+                    nameTextView.error = it
+                }.check()
+        }
     }
 
     private fun setListener() {

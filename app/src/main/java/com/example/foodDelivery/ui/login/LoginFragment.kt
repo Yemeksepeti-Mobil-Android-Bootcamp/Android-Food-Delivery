@@ -13,6 +13,9 @@ import com.example.foodDelivery.databinding.FragmentLoginBinding
 import com.example.foodDelivery.utils.Resource
 import com.example.foodDelivery.utils.gone
 import com.example.foodDelivery.utils.show
+import com.wajahatkarim3.easyvalidation.core.view_ktx.nonEmpty
+import com.wajahatkarim3.easyvalidation.core.view_ktx.validEmail
+import com.wajahatkarim3.easyvalidation.core.view_ktx.validator
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -44,9 +47,11 @@ class LoginFragment : Fragment() {
     }
 
     private fun login() {
-        val email = binding.editTextEmailAddress.text.toString()
-        val password = binding.editTextPassword.text.toString()
-
+        val emailTextView = binding.editTextEmailAddress
+        val passwordTextView = binding.editTextPassword
+        if(emailTextView.nonEmpty() && passwordTextView.nonEmpty()){
+            val email = emailTextView.text.toString()
+            val password = passwordTextView.text.toString()
         viewModel.login(email, password)
             .observe(viewLifecycleOwner, {
                 when (it.status) {
@@ -68,7 +73,19 @@ class LoginFragment : Fragment() {
                         dialog.show()
                     }
                 }
-            })
+            })}
+        else{
+            emailTextView.validator()
+                .nonEmpty()
+                .addErrorCallback {
+                    emailTextView.error = it
+                }.check()
+            passwordTextView.validator()
+                .nonEmpty()
+                .addErrorCallback {
+                    passwordTextView.error = it
+                }.check()
+        }
     }
 
     private fun setSignUpButtonListener() {

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.foodDelivery.data.entity.order.Order
 import com.example.foodDelivery.databinding.FragmentOrderListBinding
@@ -68,6 +69,9 @@ class OrderListFragment:Fragment() {
         binding.apply {
             recyclerView.layoutManager = LinearLayoutManager(context)
             recyclerView.adapter = adapter
+            backButton.setOnClickListener{
+                findNavController().popBackStack()
+            }
         }
     }
 

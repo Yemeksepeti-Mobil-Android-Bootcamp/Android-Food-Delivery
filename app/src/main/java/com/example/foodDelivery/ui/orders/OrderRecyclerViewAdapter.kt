@@ -3,6 +3,7 @@ package com.example.foodDelivery.ui.orders
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.foodDelivery.data.entity.order.Order
 import com.example.foodDelivery.databinding.ItemOrderBinding
 
@@ -15,10 +16,14 @@ class OrderRecyclerViewAdapter: RecyclerView.Adapter<OrderRecyclerViewAdapter.Or
 
         fun bind(item: Order) {
             binding.apply {
-                date.text = item.createdDate.toString()
-                price.text = item.price.toString()
-                restaurant.text = item.restaurant.name
-                meal.text = item.meal.name
+                restaurantNameTextView.text = item.restaurant.name
+                dateTextView.text = item.createdDate.toString()
+                mealNameTextView.text = item.meal.name
+                val desc = "Meal Description"
+                mealDescriptionTextView.text = desc
+                mealPriceTextView.text = item.meal.price
+                Glide.with(imageView.context)
+                    .load(item.meal.image).into(imageView)
             }
         }
     }

@@ -4,27 +4,55 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg">
+    android:paddingTop="@dimen/_16sdp"
+    android:background="@color/bg"
+    tools:context=".ui.profile.ProfileFragment">
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_6sdp"
+        android:backgroundTint="@color/transparent"
+        android:padding="@dimen/_8sdp"
+        android:visibility="invisible"
+        android:src="@drawable/ic_baseline_arrow_back_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/profileTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/user_profile"
+        android:textColor="@color/primary"
+        android:textSize="@dimen/_19ssp"
+        android:layout_margin="@dimen/_6sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/backButton" />
+
 
     <androidx.cardview.widget.CardView
         android:id="@+id/profilerCardView"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_margin="@dimen/_6sdp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginHorizontal="@dimen/_6sdp"
         app:cardCornerRadius="@dimen/_16sdp"
         app:cardElevation="@dimen/_8sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/profileTextView">
 
         <ImageView
             android:id="@+id/profileImageView"
             android:layout_width="@dimen/_80sdp"
             android:layout_height="@dimen/_80sdp"
-            android:src="@drawable/ic_avatar"
             android:layout_gravity="center_vertical"
             android:layout_margin="20dp"
-            android:contentDescription="@string/profile_image" />
+            android:contentDescription="@string/profile_image"
+            android:src="@drawable/ic_avatar" />
 
         <TextView
             android:id="@+id/profileNameTextView"
@@ -34,7 +62,7 @@
             android:layout_marginTop="@dimen/_18sdp"
             android:fontFamily="@font/montserrat"
             android:textColor="@color/primary"
-            android:textSize="@dimen/_15ssp"
+            android:textSize="@dimen/_14ssp"
             tools:text="Oktay Agca" />
 
         <TextView
@@ -45,8 +73,9 @@
             android:layout_marginTop="@dimen/_40sdp"
             android:fontFamily="@font/montserrat"
             android:textColor="@color/primary"
-            android:textSize="@dimen/_15ssp"
+            android:textSize="@dimen/_14ssp"
             tools:text="E-mail" />
+
         <TextView
             android:id="@+id/roleTextView"
             android:layout_width="wrap_content"
@@ -55,7 +84,7 @@
             android:layout_marginTop="@dimen/_63sdp"
             android:fontFamily="@font/montserrat"
             android:textColor="@color/primary"
-            android:textSize="@dimen/_15ssp"
+            android:textSize="@dimen/_14ssp"
             tools:text="Role" />
     </androidx.cardview.widget.CardView>
 
@@ -75,17 +104,28 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_6sdp">
 
+            <ImageView
+                android:layout_marginTop="@dimen/_3sdp"
+                android:id="@+id/imageView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:contentDescription="@string/arrow_button"
+                android:src="@drawable/ic_baseline_history_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_10sdp"
                 android:fontFamily="@font/montserrat"
                 android:text="@string/last_orders"
                 android:textColor="@color/primary"
                 android:textSize="@dimen/_18ssp"
+                android:layout_marginStart="@dimen/_5sdp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView8"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
@@ -103,7 +143,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/CardView"
+        android:id="@+id/favoriteCardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_6sdp"
@@ -118,16 +158,28 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_6sdp">
 
-            <TextView
+            <ImageView
+                android:id="@+id/favoriteImageView"
+                android:layout_marginTop="@dimen/_3sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_10sdp"
+                android:contentDescription="@string/arrow_button"
+                android:src="@drawable/ic_baseline_favorite_border_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_5sdp"
                 android:fontFamily="@font/montserrat"
                 android:text="@string/favorites"
                 android:textColor="@color/primary"
                 android:textSize="@dimen/_18ssp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/favoriteImageView"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
@@ -144,42 +196,111 @@
 
     </androidx.cardview.widget.CardView>
 
-
     <androidx.cardview.widget.CardView
-        android:id="@+id/logoutCardView"
+        android:id="@+id/settingCardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_6sdp"
         app:cardCornerRadius="@dimen/_16sdp"
         app:cardElevation="@dimen/_8sdp"
-        app:layout_constraintTop_toBottomOf="@+id/CardView">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/favoriteCardView">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_6sdp">
 
-            <TextView
+            <ImageView
+                android:id="@+id/settingImageView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:contentDescription="@string/arrow_button"
+                android:src="@drawable/ic_baseline_settings_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_5sdp"
                 android:fontFamily="@font/montserrat"
-                android:text="@string/logout"
+                android:text="@string/settings"
                 android:textColor="@color/primary"
                 android:textSize="@dimen/_18ssp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/settingImageView"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_20sdp"
+                android:contentDescription="@string/arrow_button"
                 android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/logoutCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_6sdp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="7dp"
+        app:cardCornerRadius="@dimen/_16sdp"
+        app:cardElevation="@dimen/_8sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/settingCardView">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_6sdp">
+
+            <ImageView
+                android:id="@+id/logoutImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:contentDescription="@string/arrow_button"
+                android:src="@drawable/ic_baseline_logout_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_5sdp"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/logout"
+                android:textColor="@color/primary"
+                android:textSize="@dimen/_18ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/logoutImageView"
                 app:layout_constraintTop_toTopOf="parent"
-                android:contentDescription="@string/arrow_button" />
+                app:layout_constraintVertical_bias="0.0" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:contentDescription="@string/arrow_button"
+                android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

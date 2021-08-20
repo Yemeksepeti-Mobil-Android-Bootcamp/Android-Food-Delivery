@@ -7,14 +7,41 @@
     android:background="@color/bg"
     tools:context=".ui.favorite.FavoriteFragment">
 
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_6sdp"
+        android:backgroundTint="@color/transparent"
+        android:padding="@dimen/_8sdp"
+        android:visibility="invisible"
+        android:src="@drawable/ic_baseline_arrow_back_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/favoriteTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/rest"
+        android:textColor="@color/primary"
+        android:textSize="@dimen/_19ssp"
+        android:layout_margin="@dimen/_6sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/backButton" />
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="0dp"
+        android:layout_marginTop="@dimen/_10sdp"
         android:layout_height="0dp"
-        android:layout_margin="@dimen/_6sdp"
+        android:layout_marginHorizontal="@dimen/_6sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/favoriteTextView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

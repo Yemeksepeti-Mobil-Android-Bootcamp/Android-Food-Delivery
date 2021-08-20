@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -42,7 +43,7 @@ class ProfileFragment:Fragment() {
         binding.apply {
             profileNameTextView.text = user.name
             emailAddressTextView.text = user.email
-            roleTextView.text = "Role:${user.role}"
+            roleTextView.text = user.role
             logoutCardView.setOnClickListener{
                 viewModel.logout(user)
                 val intent = Intent(context, MainActivity::class.java)
@@ -52,7 +53,12 @@ class ProfileFragment:Fragment() {
             orderCardViews.setOnClickListener{
                 findNavController().navigate(R.id.action_homeFragment_to_orderListFragment)
             }
+            favoriteCardView.setOnClickListener{
+                findNavController().navigate(R.id.action_homeFragment_to_favoriteFragment)
+            }
         }
 
     }
+
+
 }

@@ -24,4 +24,16 @@ class RestaurantListViewModel @Inject constructor(
         repository.addFavorite(localRestaurant)
     }
 
+    fun filterList(text: String?): List<Restaurant>? {
+        if (text.isNullOrEmpty())
+            return restaurantList
+
+        val filterList: MutableList<Restaurant> = mutableListOf()
+        restaurantList?.forEach { restaurant ->
+            if (restaurant.address.contains(text, true))
+                filterList.add(restaurant)
+        }
+        return filterList
+    }
+
 }

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.SearchView.OnQueryTextListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -71,8 +72,23 @@ class RestaurantListFragment: Fragment(),IRestaurantListener  {
 
 
     private fun initViews() {
-        binding.recyclerView.layoutManager = LinearLayoutManager(context)
-        binding.recyclerView.adapter = adapter
+        binding.apply {
+            recyclerView.adapter = adapter
+            recyclerView.layoutManager = LinearLayoutManager(context)
+            locationSearchView.setOnQueryTextListener(object : OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    val locationFilterList = viewModel.filterList(query)
+                    locationFilterList?.let { setData(it) }
+                    return true
+                }
+
+                override fun onQueryTextChange(newText: String?): Boolean {
+                    val locationFilterList = viewModel.filterList(newText)
+                    locationFilterList?.let { setData(it) }
+                    return true
+                }
+            })
+        }
     }
 
     override fun onClick(restaurant: Restaurant) {

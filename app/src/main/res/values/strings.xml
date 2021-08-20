@@ -38,4 +38,6 @@
     <string name="change_theme">Change Theme</string>
     <string name="rest">Your Favorite Restaurants </string>
     <string name="your_last_orders">Your Last Orders</string>
+    <string name="you_do_not_have_a_delivery_yet">You do not have a delivery yet</string>
+    <string name="you_don_t_have_any_favorites_yet">You don\'t have any favorites yet</string>
 </resources>

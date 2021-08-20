@@ -27,6 +27,7 @@
 
 
             <androidx.appcompat.widget.SearchView
+                android:id="@+id/locationSearchView"
                 android:layout_marginVertical="@dimen/_10sdp"
                 android:layout_marginBottom="@dimen/_6sdp"
                 android:layout_marginHorizontal="@dimen/_6sdp"

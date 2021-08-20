@@ -10,7 +10,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.foodDelivery.databinding.FragmentFavoriteBinding
 import com.example.foodDelivery.ui.home.HomeFragmentDirections
+import com.example.foodDelivery.utils.gone
 import com.example.foodDelivery.utils.room.entity.LocalRestaurant
+import com.example.foodDelivery.utils.show
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -43,6 +45,17 @@ class FavoriteFragment:Fragment(),IFavoriteListener {
 
     private fun getFavoriteList() {
         viewModel.getFavoriteListLiveData().observe(viewLifecycleOwner,{
+            if (it.isEmpty()){
+                binding.apply {
+                    noDataImageView.show()
+                    noDataTextView.show()
+                }
+            }else{
+                binding.apply {
+                    noDataImageView.gone()
+                    noDataTextView.gone()
+                }
+            }
             adapter.setRestaurantList(it,this)
         })
         viewModel.listFavorite()

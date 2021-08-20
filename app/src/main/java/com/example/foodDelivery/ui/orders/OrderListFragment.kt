@@ -49,6 +49,17 @@ class OrderListFragment:Fragment() {
                 }
                 Resource.Status.SUCCESS -> {
                     binding.progressBar.gone()
+                    if (it.data!!.orderList.isEmpty()){
+                        binding.apply {
+                            noDataImageView.show()
+                            noDataTextView.show()
+                        }
+                    }else{
+                        binding.apply {
+                            noDataImageView.gone()
+                            noDataTextView.gone()
+                        }
+                    }
                     setData(it.data!!.orderList)
                 }
                 Resource.Status.ERROR -> {

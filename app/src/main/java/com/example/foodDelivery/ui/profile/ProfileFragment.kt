@@ -43,7 +43,8 @@ class ProfileFragment:Fragment() {
         binding.apply {
             profileNameTextView.text = user.name
             emailAddressTextView.text = user.email
-            roleTextView.text = user.role
+            val role = "role:${user.role}"
+            roleTextView.text = role
             logoutCardView.setOnClickListener{
                 viewModel.logout(user)
                 val intent = Intent(context, MainActivity::class.java)

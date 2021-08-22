@@ -33,6 +33,11 @@ class SplashFragment:Fragment() {
         animatorListener()
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
     private fun animatorListener() {
 
         //Animation Listener
@@ -66,4 +71,5 @@ class SplashFragment:Fragment() {
             }
         })
     }
+
 }

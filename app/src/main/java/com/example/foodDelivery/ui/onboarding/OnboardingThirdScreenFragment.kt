@@ -14,23 +14,31 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class OnboardingThirdScreenFragment:Fragment() {
 
-    private lateinit var binding: FragmentOnboardingThirdScreenBinding
+    private var binding: FragmentOnboardingThirdScreenBinding? = null
     private val viewModel: OnboardingViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
         binding = FragmentOnboardingThirdScreenBinding.inflate(layoutInflater,container,false)
-        val view = binding.root
+        val view = binding?.root
         initViews()
         return view
     }
 
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
+    }
+
     private fun initViews() {
-        binding.homeButton.setOnClickListener{
-            viewModel.saveOnboardingState("onboarding","true")
-            findNavController().navigate(R.id.action_onboardingMainFragment_to_signUpFragment)
+        binding?.let {
+            it.homeButton.setOnClickListener{
+                viewModel.saveOnboardingState("onboarding","true")
+                findNavController().navigate(R.id.action_onboardingMainFragment_to_signUpFragment)
+            }
         }
     }
 }

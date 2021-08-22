@@ -40,6 +40,13 @@ class RestaurantDetailFragment: Fragment(),IMealListener {
         return binding.root
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding.recyclerView.adapter = null
+        _binding = null
+    }
+
+
     private fun initViews() {
         binding.apply {
             recyclerView.layoutManager = LinearLayoutManager(context)

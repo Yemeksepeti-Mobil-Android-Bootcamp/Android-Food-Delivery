@@ -11,22 +11,31 @@ import com.example.foodDelivery.databinding.FragmentOnboardingFirstScreenBinding
 
 class OnboardingFirstScreenFragment:Fragment() {
 
-    private lateinit var binding : FragmentOnboardingFirstScreenBinding
+    private  var binding : FragmentOnboardingFirstScreenBinding? = null
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
         binding = FragmentOnboardingFirstScreenBinding.inflate(layoutInflater,container,false)
-        val view = binding.root
+        val view = binding?.root
         initViews()
         return view
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
+    }
+
     private fun initViews() {
         val viewPager = activity?.findViewById<ViewPager2>(R.id.viewPager)
-        binding.nextButton.setOnClickListener{
-            viewPager?.currentItem=1
+        binding?.let{
+            it.nextButton.setOnClickListener{
+                viewPager?.currentItem=1
+            }
         }
     }
+
+
 }

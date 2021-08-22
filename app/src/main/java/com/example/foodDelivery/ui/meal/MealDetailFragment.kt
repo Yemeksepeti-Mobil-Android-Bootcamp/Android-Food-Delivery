@@ -25,6 +25,7 @@ class MealDetailFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var mealId: String
     private var adapter: IngredientsRecyclerViewAdapter = IngredientsRecyclerViewAdapter()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -40,6 +41,14 @@ class MealDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         getMeal()
     }
+
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding.recyclerView.adapter =null
+        _binding = null
+    }
+
 
     private fun setData(ingredients: ArrayList<String>) {
         adapter.setIngredientList(ingredients)
@@ -136,5 +145,4 @@ class MealDetailFragment : Fragment() {
             mealPriceTextView.text = meal.price
         }
     }
-
 }

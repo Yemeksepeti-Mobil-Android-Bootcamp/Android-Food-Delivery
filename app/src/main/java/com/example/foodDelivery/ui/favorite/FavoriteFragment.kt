@@ -37,6 +37,12 @@ class FavoriteFragment:Fragment(),IFavoriteListener {
         getFavoriteList()
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding.recyclerView.adapter = null
+        _binding = null
+    }
+
 
     override fun onResume() {
         super.onResume()
@@ -76,6 +82,5 @@ class FavoriteFragment:Fragment(),IFavoriteListener {
         viewModel.removeFavorite(localRestaurant)
         getFavoriteList()
     }
-
 
 }

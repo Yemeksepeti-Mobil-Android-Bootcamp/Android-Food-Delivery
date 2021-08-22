@@ -38,6 +38,12 @@ class RegisterFragment : Fragment() {
         }
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+
     private fun register() {
         val emailTextView = binding.emailAddressEditText
         val nameTextView = binding.personNameEditText
@@ -45,7 +51,7 @@ class RegisterFragment : Fragment() {
 
         if(emailTextView.nonEmpty() && passwordTextView.nonEmpty()&& nameTextView.nonEmpty()){
             val email = emailTextView.text.toString()
-            var password = passwordTextView.text.toString()
+            val password = passwordTextView.text.toString()
             val name = nameTextView.text.toString()
         viewModel.register(email, name, password).observe(viewLifecycleOwner,{
             when(it.status){

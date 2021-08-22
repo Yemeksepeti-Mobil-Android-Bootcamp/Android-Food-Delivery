@@ -30,6 +30,11 @@ class ProfileFragment:Fragment() {
         return binding.root
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
     private fun getUser() {
         viewModel.observeUserLiveData().observe(viewLifecycleOwner,{
             initViews(it)
@@ -66,3 +71,4 @@ class ProfileFragment:Fragment() {
         }
     }
 }
+

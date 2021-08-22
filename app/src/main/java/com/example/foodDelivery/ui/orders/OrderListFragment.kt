@@ -37,6 +37,12 @@ class OrderListFragment:Fragment() {
         super.onViewCreated(view, savedInstanceState)
         getOrderList()
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding.recyclerView.adapter = null
+        _binding = null
+    }
     fun setData(orders:List<Order>){
         adapter.setOrderList(orders)
     }
@@ -85,7 +91,5 @@ class OrderListFragment:Fragment() {
             }
         }
     }
-
-
 
 }

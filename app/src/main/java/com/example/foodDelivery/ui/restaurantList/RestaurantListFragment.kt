@@ -41,6 +41,12 @@ class RestaurantListFragment: Fragment(),IRestaurantListener  {
         getRestaurants()
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding.recyclerView.adapter = null
+        _binding = null
+    }
+
     private fun getRestaurants() {
         viewModel.getRestaurants().observe(viewLifecycleOwner, { response ->
             when (response.status) {
@@ -106,4 +112,5 @@ class RestaurantListFragment: Fragment(),IRestaurantListener  {
             }
         dialog.show()
     }
+
 }

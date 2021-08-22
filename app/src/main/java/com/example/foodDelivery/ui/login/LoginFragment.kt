@@ -39,6 +39,11 @@ class LoginFragment : Fragment() {
         setLoginButtonListener()
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
     private fun login() {
         val emailTextView = binding.editTextEmailAddress
         val passwordTextView = binding.editTextPassword
@@ -96,4 +101,5 @@ class LoginFragment : Fragment() {
         val passwordTextView = binding.editTextPassword
         return emailTextView.nonEmpty() && passwordTextView.nonEmpty()
     }
+
 }

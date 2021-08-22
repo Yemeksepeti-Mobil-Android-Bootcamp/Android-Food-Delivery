@@ -12,6 +12,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class HomeFragment: Fragment() {
     private var _binding:FragmentHomeBinding? = null
     private val binding get() = _binding!!
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -20,6 +21,12 @@ class HomeFragment: Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater,container,false)
         initViews()
         return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding.viewPagerHome.adapter = null
+        _binding = null
     }
 
     private fun initViews() {

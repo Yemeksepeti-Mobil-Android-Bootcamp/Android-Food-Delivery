@@ -9,24 +9,33 @@ import com.example.foodDelivery.databinding.FragmentOnboardingMainBinding
 import com.example.foodDelivery.utils.anim.DepthPageTransformer
 
 class OnboardingMainFragment:Fragment(){
-    private lateinit var binding: FragmentOnboardingMainBinding
+    private  var binding: FragmentOnboardingMainBinding? = null
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
         binding = FragmentOnboardingMainBinding.inflate(layoutInflater,container,false)
-        val view = binding.root
+        val view = binding?.root
         initViewPager()
         return view
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding?.let{it.viewPager.adapter = null}
+        binding = null
+    }
+
     private fun initViewPager() {
         val adapter = OnboardingViewPagerAdapter(requireActivity())
-        binding.apply {
-            viewPager.adapter = adapter
-            viewPager.setPageTransformer(DepthPageTransformer())
-            dotsIndicator.setViewPager2(binding.viewPager)
+        binding?.let {
+            it.apply {
+                viewPager.adapter = adapter
+                viewPager.setPageTransformer(DepthPageTransformer())
+                dotsIndicator.setViewPager2(binding!!.viewPager)
+            }
         }
+
     }
 }

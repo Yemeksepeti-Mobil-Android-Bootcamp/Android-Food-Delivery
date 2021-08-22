@@ -17,7 +17,8 @@
         android:visibility="invisible"
         android:src="@drawable/ic_baseline_arrow_back_24"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/arrow_button" />
 
     <TextView
         android:id="@+id/profileTextView"
@@ -25,7 +26,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat"
         android:text="@string/user_profile"
-        android:textColor="@color/primary"
+        android:textColor="@color/textColor"
         android:textSize="@dimen/_19ssp"
         android:layout_margin="@dimen/_6sdp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -61,7 +62,7 @@
             android:layout_marginStart="@dimen/_115sdp"
             android:layout_marginTop="@dimen/_18sdp"
             android:fontFamily="@font/montserrat"
-            android:textColor="@color/primary"
+            android:textColor="@color/textColor"
             android:textSize="@dimen/_14ssp"
             tools:text="Oktay Agca" />
 
@@ -72,7 +73,7 @@
             android:layout_marginStart="@dimen/_115sdp"
             android:layout_marginTop="@dimen/_40sdp"
             android:fontFamily="@font/montserrat"
-            android:textColor="@color/primary"
+            android:textColor="@color/textColor"
             android:textSize="@dimen/_14ssp"
             tools:text="E-mail" />
 
@@ -83,7 +84,7 @@
             android:layout_marginStart="@dimen/_115sdp"
             android:layout_marginTop="@dimen/_63sdp"
             android:fontFamily="@font/montserrat"
-            android:textColor="@color/primary"
+            android:textColor="@color/textColor"
             android:textSize="@dimen/_14ssp"
             tools:text="Role" />
     </androidx.cardview.widget.CardView>
@@ -121,7 +122,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat"
                 android:text="@string/last_orders"
-                android:textColor="@color/primary"
+                android:textColor="@color/textColor"
                 android:textSize="@dimen/_18ssp"
                 android:layout_marginStart="@dimen/_5sdp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -176,7 +177,7 @@
                 android:layout_marginHorizontal="@dimen/_5sdp"
                 android:fontFamily="@font/montserrat"
                 android:text="@string/favorites"
-                android:textColor="@color/primary"
+                android:textColor="@color/textColor"
                 android:textSize="@dimen/_18ssp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/favoriteImageView"
@@ -230,7 +231,7 @@
                 android:layout_marginHorizontal="@dimen/_5sdp"
                 android:fontFamily="@font/montserrat"
                 android:text="@string/settings"
-                android:textColor="@color/primary"
+                android:textColor="@color/textColor"
                 android:textSize="@dimen/_18ssp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/settingImageView"
@@ -285,7 +286,7 @@
                 android:layout_marginHorizontal="@dimen/_5sdp"
                 android:fontFamily="@font/montserrat"
                 android:text="@string/logout"
-                android:textColor="@color/primary"
+                android:textColor="@color/textColor"
                 android:textSize="@dimen/_18ssp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/logoutImageView"

@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.room.FtsOptions
 import com.bumptech.glide.Glide
 import com.example.foodDelivery.data.entity.meal.Meal
 import com.example.foodDelivery.data.entity.order.OrderRequest
@@ -45,12 +44,18 @@ class RestaurantDetailFragment: Fragment(),IMealListener {
         binding.apply {
             recyclerView.layoutManager = LinearLayoutManager(context)
             recyclerView.adapter = adapter
+            setOnClickListeners()
+        }
+    }
+
+    private fun setOnClickListeners() {
+        binding.apply {
             favButton.setOnClickListener{
                 viewModel.addFavorite(restaurant)
                 val dialog = AlertDialog.Builder(context)
                     .setTitle("Success")
                     .setMessage("The restaurant has been added to your favorites")
-                    .setPositiveButton("ok") { dialog, button ->
+                    .setPositiveButton("ok") { dialog, _ ->
                         dialog.dismiss()
                     }
                 dialog.show()
@@ -65,9 +70,11 @@ class RestaurantDetailFragment: Fragment(),IMealListener {
         binding.apply {
             restaurantNameTextView.text = restaurant.name
             restaurantAddressTextView.text = restaurant.address
-            deliveryTimeTextView.text = "${restaurant.deliveryTime}min."
+            val deliveryTime = "${restaurant.deliveryTime}min."
+            deliveryTimeTextView.text = deliveryTime
             paymentTextView.text = restaurant.paymentMethods
-            minDeliveryFeeTextView.text = "min ${restaurant.minimumDeliveryFee}$"
+            val minDeliveryFee = "min ${restaurant.minimumDeliveryFee}$"
+            minDeliveryFeeTextView.text = minDeliveryFee
             phoneTextView.text = restaurant.phone
             Glide.with(imageView.context)
                 .load(restaurant.image).into(imageView)
@@ -84,7 +91,6 @@ class RestaurantDetailFragment: Fragment(),IMealListener {
                         restaurantMenuTextView.gone()
                         progressBar.show()
                     }
-
                 }
                 Resource.Status.SUCCESS -> {
                     binding.apply {
@@ -105,7 +111,7 @@ class RestaurantDetailFragment: Fragment(),IMealListener {
                     val dialog = AlertDialog.Builder(context)
                         .setTitle("Error")
                         .setMessage("${response.message}")
-                        .setPositiveButton("ok") { dialog, button ->
+                        .setPositiveButton("ok") { dialog, _ ->
                             dialog.dismiss()
                         }
                     dialog.show()
@@ -130,7 +136,7 @@ class RestaurantDetailFragment: Fragment(),IMealListener {
                     val dialog = AlertDialog.Builder(context)
                         .setTitle("Success")
                         .setMessage("Your order has been created")
-                        .setPositiveButton("ok") { dialog, button ->
+                        .setPositiveButton("ok") { dialog, _ ->
                             dialog.dismiss()
                         }
                     dialog.show()
@@ -140,7 +146,7 @@ class RestaurantDetailFragment: Fragment(),IMealListener {
                     val dialog = AlertDialog.Builder(context)
                         .setTitle("Error")
                         .setMessage("${it.message}")
-                        .setPositiveButton("ok") { dialog, button ->
+                        .setPositiveButton("ok") { dialog, _ ->
                             dialog.dismiss()
                         }
                     dialog.show()
@@ -148,6 +154,5 @@ class RestaurantDetailFragment: Fragment(),IMealListener {
             }
         })
     }
-
 
 }

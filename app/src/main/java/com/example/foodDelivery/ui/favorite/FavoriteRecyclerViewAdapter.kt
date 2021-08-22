@@ -19,9 +19,11 @@ class FavoriteRecyclerViewAdapter: RecyclerView.Adapter<FavoriteRecyclerViewAdap
             binding.apply {
                 restaurantNameTextView.text = item.name
                 restaurantAddressTextView.text = item.address
-                deliveryTimeTextView.text = "${item.deliveryTime} min."
+                val deliveryTime = "${item.deliveryTime} min."
+                deliveryTimeTextView.text = deliveryTime
                 paymentTextView.text = item.paymentMethods
-                minDeliveryFeeTextView.text = "min ${item.minDeliveryFee}$"
+                val minDeliveryFee = "min ${item.minDeliveryFee}$"
+                minDeliveryFeeTextView.text = minDeliveryFee
                 Glide.with(imageView.context)
                     .load(item.image).into(imageView)
                 cardView.setOnClickListener{

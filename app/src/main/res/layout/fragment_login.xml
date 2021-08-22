@@ -48,7 +48,6 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat"
                 android:backgroundTint="#F0F0F0"
-                android:text="oktyagca@gmail.com"
                 android:inputType="textEmailAddress"
                 android:textSize="@dimen/_14ssp" />
 
@@ -76,7 +75,6 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="#F0F0F0"
                 android:fontFamily="@font/montserrat"
-                android:text="123456"
                 android:inputType="textPassword"
                 android:textSize="@dimen/_14ssp" />
         </com.google.android.material.textfield.TextInputLayout>

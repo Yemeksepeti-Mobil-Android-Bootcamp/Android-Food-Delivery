@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -45,6 +44,13 @@ class ProfileFragment:Fragment() {
             emailAddressTextView.text = user.email
             val role = "role:${user.role}"
             roleTextView.text = role
+            setOnClickListeners(user)
+        }
+
+    }
+
+    private fun setOnClickListeners(user: LocalUser) {
+        binding.apply {
             logoutCardView.setOnClickListener{
                 viewModel.logout(user)
                 val intent = Intent(context, MainActivity::class.java)
@@ -58,8 +64,5 @@ class ProfileFragment:Fragment() {
                 findNavController().navigate(R.id.action_homeFragment_to_favoriteFragment)
             }
         }
-
     }
-
-
 }

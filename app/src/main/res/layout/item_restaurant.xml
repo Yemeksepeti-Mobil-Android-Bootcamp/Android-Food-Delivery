@@ -49,7 +49,7 @@
                 android:layout_marginTop="@dimen/_1sdp"
                 android:layout_marginStart="@dimen/_6sdp"
                 android:fontFamily="@font/montserrat"
-                android:textColor="@color/primary"
+                android:textColor="@color/textColor"
                 android:textSize="@dimen/_10ssp"
                 app:layout_constraintStart_toEndOf="@+id/imageView7"
                 app:layout_constraintTop_toTopOf="@+id/imageView7"
@@ -72,7 +72,7 @@
                 android:layout_margin="@dimen/_6sdp"
                 android:layout_marginTop="4dp"
                 android:fontFamily="@font/montserrat"
-                android:textColor="@color/primary"
+                android:textColor="@color/textColor"
                 android:maxLength="24"
                 android:textSize="@dimen/_10ssp"
                 app:layout_constraintStart_toEndOf="@+id/imageView2"
@@ -99,7 +99,7 @@
                 android:layout_marginStart="@dimen/_6sdp"
                 android:fontFamily="@font/montserrat"
                 android:maxLength="24"
-                android:textColor="@color/primary"
+                android:textColor="@color/textColor"
                 android:textSize="@dimen/_10ssp"
                 app:layout_constraintStart_toEndOf="@+id/imageView3"
                 app:layout_constraintTop_toTopOf="@+id/imageView3"
@@ -120,7 +120,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat"
-                android:textColor="@color/primary"
+                android:textColor="@color/textColor"
                 android:layout_marginTop="@dimen/_1sdp"
                 android:layout_marginStart="@dimen/_6sdp"
                 android:textSize="@dimen/_10ssp"
@@ -146,7 +146,7 @@
                 android:layout_marginTop="@dimen/_1sdp"
                 android:layout_marginStart="@dimen/_6sdp"
                 android:fontFamily="@font/montserrat"
-                android:textColor="@color/primary"
+                android:textColor="@color/textColor"
                 android:maxLength="24"
                 android:textSize="@dimen/_10ssp"
                 app:layout_constraintStart_toEndOf="@+id/imageView5"
@@ -155,29 +155,26 @@
 
             <ImageButton
                 android:id="@+id/favButton"
-                android:backgroundTint="@color/secondary"
                 android:layout_width="@dimen/_30sdp"
                 android:layout_height="@dimen/_30sdp"
-                android:layout_margin="@dimen/_6sdp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="4dp"
+                android:layout_marginEnd="@dimen/_1sdp"
                 android:background="@drawable/image_button_bg"
                 android:src="@drawable/ic_baseline_favorite_border_24"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:contentDescription="@string/favourite" />
             <ImageButton
                 android:id="@+id/favDeleteButton"
-                android:backgroundTint="@color/secondary"
                 android:layout_width="@dimen/_30sdp"
                 android:layout_height="@dimen/_30sdp"
-                android:layout_margin="@dimen/_6sdp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginEnd="@dimen/_1sdp"
                 android:layout_marginBottom="4dp"
                 android:background="@drawable/image_button_bg"
                 android:visibility="gone"
                 android:src="@drawable/ic_baseline_delete_24"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintEnd_toEndOf="parent"
+                android:contentDescription="@string/delete" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -186,7 +183,8 @@
                 android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:contentDescription="@string/arrow_button" />
 
 
 

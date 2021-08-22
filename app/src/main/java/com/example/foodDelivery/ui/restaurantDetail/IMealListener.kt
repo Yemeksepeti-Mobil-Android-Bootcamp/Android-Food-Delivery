@@ -6,4 +6,5 @@ interface IMealListener {
     fun onClickMeal(meal: Meal)
 
     fun onClickOrder(meal: Meal)
+
 }

@@ -57,7 +57,7 @@ class RestaurantListFragment: Fragment(),IRestaurantListener  {
                     val dialog = AlertDialog.Builder(context)
                         .setTitle("Error")
                         .setMessage("${response.message}")
-                        .setPositiveButton("ok") { dialog, button ->
+                        .setPositiveButton("ok") { dialog, _ ->
                             dialog.dismiss()
                         }
                     dialog.show()
@@ -101,7 +101,7 @@ class RestaurantListFragment: Fragment(),IRestaurantListener  {
         val dialog = AlertDialog.Builder(context)
             .setTitle("Success")
             .setMessage("The restaurant has been added to your favorites")
-            .setPositiveButton("ok") { dialog, button ->
+            .setPositiveButton("ok") { dialog, _ ->
                 dialog.dismiss()
             }
         dialog.show()

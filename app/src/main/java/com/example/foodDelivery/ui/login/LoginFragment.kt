@@ -14,7 +14,6 @@ import com.example.foodDelivery.utils.Resource
 import com.example.foodDelivery.utils.gone
 import com.example.foodDelivery.utils.show
 import com.wajahatkarim3.easyvalidation.core.view_ktx.nonEmpty
-import com.wajahatkarim3.easyvalidation.core.view_ktx.validEmail
 import com.wajahatkarim3.easyvalidation.core.view_ktx.validator
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -40,16 +39,10 @@ class LoginFragment : Fragment() {
         setLoginButtonListener()
     }
 
-    private fun setLoginButtonListener() {
-        binding.loginButton.setOnClickListener {
-            login()
-        }
-    }
-
     private fun login() {
         val emailTextView = binding.editTextEmailAddress
         val passwordTextView = binding.editTextPassword
-        if(emailTextView.nonEmpty() && passwordTextView.nonEmpty()){
+        if(validation()){
             val email = emailTextView.text.toString()
             val password = passwordTextView.text.toString()
         viewModel.login(email, password)
@@ -67,7 +60,7 @@ class LoginFragment : Fragment() {
                         val dialog = AlertDialog.Builder(context)
                             .setTitle("Error")
                             .setMessage("${it.message}")
-                            .setPositiveButton("ok") { dialog, button ->
+                            .setPositiveButton("ok") { dialog, _ ->
                                 dialog.dismiss()
                             }
                         dialog.show()
@@ -92,5 +85,15 @@ class LoginFragment : Fragment() {
         binding.signUpButton.setOnClickListener {
             findNavController().navigate(R.id.action_signInFragment_to_signUpFragment)
         }
+    }
+    private fun setLoginButtonListener() {
+        binding.loginButton.setOnClickListener {
+            login()
+        }
+    }
+    private fun validation():Boolean{
+        val emailTextView = binding.editTextEmailAddress
+        val passwordTextView = binding.editTextPassword
+        return emailTextView.nonEmpty() && passwordTextView.nonEmpty()
     }
 }

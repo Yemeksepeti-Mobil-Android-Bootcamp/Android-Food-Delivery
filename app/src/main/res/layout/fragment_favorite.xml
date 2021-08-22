@@ -17,7 +17,8 @@
         android:visibility="invisible"
         android:src="@drawable/ic_baseline_arrow_back_24"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/arrow_button" />
 
     <TextView
         android:id="@+id/favoriteTextView"
@@ -25,7 +26,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat"
         android:text="@string/rest"
-        android:textColor="@color/primary"
+        android:textColor="@color/textColor"
         android:textSize="@dimen/_19ssp"
         android:layout_margin="@dimen/_6sdp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,7 +43,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:visibility="gone"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/no_data" />
 
 
     <TextView

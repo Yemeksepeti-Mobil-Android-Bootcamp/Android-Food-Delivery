@@ -60,14 +60,14 @@ class OrderListFragment:Fragment() {
                             noDataTextView.gone()
                         }
                     }
-                    setData(it.data!!.orderList)
+                    setData(it.data.orderList)
                 }
                 Resource.Status.ERROR -> {
                     binding.progressBar.gone()
                     val dialog = AlertDialog.Builder(context)
                         .setTitle("Error")
                         .setMessage("${it.message}")
-                        .setPositiveButton("ok") { dialog, button ->
+                        .setPositiveButton("ok") { dialog, _ ->
                             dialog.dismiss()
                         }
                     dialog.show()

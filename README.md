@@ -48,4 +48,4 @@ This is an basic food delivery application.
 
  ## Last Orders
  - You can access the list of all your past orders. <br></br>
- <img src="https://github.com/oktayagca/Android-Food-Delivery/blob/main/ss/order_list.gif"  width="208" height="432"/>
+ <img src="https://github.com/oktayagca/Android-Food-Delivery/blob/main/ss/order_list.png"  width="208" height="432"/>
